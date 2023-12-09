@@ -24,7 +24,7 @@ export default function NavbarMobile() {
   const pathname = usePathname();
 
   return (
-    <Container className="fixed bottom-6 left-1/2 -translate-x-1/2 flex justify-center sm:hidden">
+    <Container className="z-[999] fixed bottom-8 left-1/2 -translate-x-1/2 flex justify-center sm:hidden">
       <Navbar>
         <ul className="flex gap-0 items-center justify-between w-full font-medium">
           {dataNavbar.slice(0, lastIndexForShowingItem).map((item) => (

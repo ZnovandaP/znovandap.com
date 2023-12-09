@@ -24,7 +24,7 @@ export default function NavbarDesktop() {
   const pathname = usePathname();
 
   return (
-    <Container className="sticky top-10 hidden sm:flex justify-center">
+    <Container className="z-[999] fixed top-10 left-1/2 -translate-x-1/2 hidden sm:w-full sm:flex justify-center">
       <Navbar>
         <ul className="flex gap-0 items-center justify-between w-full font-medium">
           {dataNavbar.slice(0, lastIndexForShowingItem).map((item) => (
