@@ -41,10 +41,10 @@ export default function AdditionalMenu({
             damping: 100,
           }}
           className={cn(
-            'absolute w-[217px] p-4 backdrop-blur-lg bg-stone-100/5 ring-2 ring-stone-500/30 shadow-md shadow-stone-400/50 rounded-md',
+            'absolute w-[217px] p-4 bg-stone-100 dark:bg-stone-900 ring-2 ring-stone-500/30 shadow-md shadow-stone-400/50 rounded-md',
 
             isMobile
-              ? `${isOpenDarkMenu ? '-top-[21rem]' : '-top-[14rem]'}  left-16 transition-all duration-500`
+              ? `${isOpenDarkMenu ? '-top-[23rem]' : '-top-[15rem]'}  left-[5rem] transition-all duration-500`
               : 'top-24 right-0',
           )}
         >
