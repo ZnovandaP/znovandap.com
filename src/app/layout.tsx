@@ -7,7 +7,11 @@ import NavbarMobile from '@/components/Navbar/Mobile';
 import cn from '@/libs/utils/cn';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: 'znovandap | Home',
@@ -18,19 +22,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(
-        inter.className,
-        'text-stone-600 bg-stone-50',
-
+        inter.variable,
+        'text-stone-600 bg-stone-50 font-inter',
         'dark:bg-stone-950 dark:text-stone-200',
-
-        'text-sm md:text-base',
       )}
       >
         <NextThemeProvider>
-          <header className="inline">
+          <header>
             <NavbarDesktop />
             <NavbarMobile />
           </header>
+
           <main className="h-[2000px]">
             {children}
           </main>
