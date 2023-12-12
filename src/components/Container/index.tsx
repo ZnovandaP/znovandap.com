@@ -18,7 +18,7 @@ export default function Container({ children, className }: ContainerProps) {
 
         'lg:max-w-[1024px]',
 
-        'xl:max-w-[1150px]',
+        'xl:max-w-[1200px]',
 
         className,
       )}
