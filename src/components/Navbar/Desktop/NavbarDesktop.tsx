@@ -26,7 +26,7 @@ export default function NavbarDesktop() {
   return (
     <Container className="z-[999] fixed top-10 left-1/2 -translate-x-1/2 hidden sm:w-full sm:flex justify-center">
       <Navbar>
-        <ul className="flex gap-0 items-center justify-between w-full font-medium">
+        <ul className="flex gap-0 items-center justify-between w-full font-medium lg:ml-4">
           {dataNavbar.slice(0, lastIndexForShowingItem).map((item) => (
             <NavItem data={item} key={item.title} row />
           ))}
