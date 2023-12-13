@@ -71,8 +71,8 @@ export default function Author() {
           src="/author.webp"
           alt="Author"
           priority
-          width={200}
-          height={200}
+          width={500}
+          height={500}
           className={cn(
             'w-[130px] h-[130px] object-cover object-center group-hover:scale-110',
 
