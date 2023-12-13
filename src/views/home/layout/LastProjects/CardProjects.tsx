@@ -4,10 +4,11 @@ import Tooltip from '@/components/Tooltip';
 import Card from '@/components/Card/Card';
 import Icons from '@/constant/icons';
 import dataProjects from '@/constant/data-projects';
+import CardContainer from '../common/CardContainer';
 
 export default function CardProjects() {
   return (
-    <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 xl:grid-cols-3">
+    <CardContainer>
       {dataProjects.slice(0, 3).map((data) => (
         <Link href={data.to} key={data.title}>
           <Card>
@@ -36,6 +37,6 @@ export default function CardProjects() {
           </Card>
         </Link>
       ))}
-    </div>
+    </CardContainer>
   );
 }
