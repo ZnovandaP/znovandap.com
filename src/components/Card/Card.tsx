@@ -7,6 +7,7 @@ type CardProps = {
 export default function Card({ children }: CardProps) {
   return (
     <div
+      data-aos="fade-up"
       className="bg-stone-200 dark:bg-stone-800 shadow-lg shadow-stone-500/60 ring-2 ring-stone-500/60 rounded-lg overflow-hidden hover:scale-[1.025] active:scale-100 transition-all duration-300"
     >
       {children}

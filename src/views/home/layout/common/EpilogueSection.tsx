@@ -11,7 +11,7 @@ export default function EpilogueSection({
   href, textButton, icon, paragraph,
 }: EpilogueSectionProps) {
   return (
-    <div className="center flex-col gap-6 mt-8">
+    <div data-aos="fade-up" className="center flex-col gap-6 mt-8">
       <p
         className="text-balance text-center font-medium"
       >

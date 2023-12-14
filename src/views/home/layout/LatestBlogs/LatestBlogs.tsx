@@ -11,7 +11,10 @@ export default function LatestBlogs() {
     <>
       <Line size="sm" className="m-8 mt-10" borderStyle="border-solid" />
 
-      <section className="px-8 sm:pt-0 pb-8 rounded-2xl bg-gradient-to-t from-violet-600/40 from-5% via-violet-600/5 via-30% ">
+      <section
+        className="px-8 sm:pt-0 pb-8 rounded-2xl bg-gradient-to-t from-violet-600/40 from-5% via-violet-600/5 via-30% "
+        data-aos="fade-up"
+      >
         <PrologueSection
           title="Latest Blogs"
           icon={<LuNewspaper />}

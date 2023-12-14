@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-type CardBlogsProps = {
-
-};
-export default function CardBlogs(props: CardBlogsProps) {
+export default function CardBlogs() {
   return (
     <div>
       CardBlogs
