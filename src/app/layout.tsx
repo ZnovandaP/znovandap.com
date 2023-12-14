@@ -7,6 +7,8 @@ import NavbarMobile from '@/components/Navbar/Mobile';
 import cn from '@/libs/utils/cn';
 import Footer from '@/components/Footer';
 import METADATA from '@/constant/metadata';
+import TopLoader from '@/components/TopLoader';
+import AosInit from '@/components/Aos';
 import './globals.css';
 
 const inter = Inter({
@@ -37,12 +39,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <AosInit />
       <body className={cn(
         inter.variable,
         'text-stone-600 bg-stone-50 font-inter',
         'dark:bg-stone-950 dark:text-stone-200',
       )}
       >
+        <TopLoader />
         <NextThemeProvider>
           <header>
             <NavbarDesktop />
