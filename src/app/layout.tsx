@@ -4,11 +4,11 @@ import { Inter } from 'next/font/google';
 import NextThemeProvider from '@/components/Provider/NextThemeProvider';
 import NavbarDesktop from '@/components/Navbar/Desktop';
 import NavbarMobile from '@/components/Navbar/Mobile';
-import cn from '@/libs/utils/cn';
 import Footer from '@/components/Footer';
 import METADATA from '@/constant/metadata';
 import TopLoader from '@/components/TopLoader';
 import AosInit from '@/components/Aos';
+import cn from '@/libs/utils/cn';
 import './globals.css';
 
 const inter = Inter({
@@ -18,7 +18,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.DOMAIN || ''),
+  metadataBase: new URL(process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000' : process.env.DOMAIN || ''),
   title: `Home ${METADATA.exTitle}`,
   description: METADATA.description,
   keywords: METADATA.keyword,
@@ -40,11 +41,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <AosInit />
-      <body className={cn(
-        inter.variable,
-        'text-stone-600 bg-stone-50 font-inter',
-        'dark:bg-stone-950 dark:text-stone-200',
-      )}
+      <body
+        suppressHydrationWarning
+        className={cn(
+          inter.variable,
+          'text-stone-600 bg-stone-50 font-inter',
+          'dark:bg-stone-950 dark:text-stone-200',
+        )}
       >
         <TopLoader />
         <NextThemeProvider>
