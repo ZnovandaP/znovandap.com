@@ -6,7 +6,7 @@ import CardProjects from './CardProjects';
 import PrologueSection from '../common/PrologueSection';
 import EpilogueSection from '../common/EpilogueSection';
 
-export default function LastProjects() {
+export default function LatestProjects() {
   return (
     <>
       <Line size="sm" className="m-8" borderStyle="border-solid" />

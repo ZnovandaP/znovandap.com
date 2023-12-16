@@ -1,3 +1,3 @@
-import LastProjects from './LatestProjects';
+import LatestProjects from './LatestProjects';
 
-export default LastProjects;
+export default LatestProjects;
