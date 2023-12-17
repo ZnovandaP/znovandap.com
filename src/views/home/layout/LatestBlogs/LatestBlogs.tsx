@@ -2,9 +2,9 @@ import * as React from 'react';
 import { LuNewspaper } from 'react-icons/lu';
 import { BsArrowRight } from 'react-icons/bs';
 import Line from '@/components/Decoration/Line';
-import CardProjects from '../LastProjects/CardProjects';
 import PrologueSection from '../common/PrologueSection';
 import EpilogueSection from '../common/EpilogueSection';
+import CardBlogs from './CardBlogs';
 
 export default function LatestBlogs() {
   return (
@@ -22,7 +22,7 @@ export default function LatestBlogs() {
     i understand about front-end web development"
         />
 
-        <CardProjects />
+        <CardBlogs />
 
         <EpilogueSection
           paragraph="You can see more and reed of my blog by clicking the button below, do you interesting?"
