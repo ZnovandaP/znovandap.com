@@ -4,7 +4,7 @@ import Tooltip from '@/components/Tooltip';
 import Card from '@/components/Card/Card';
 import Icons from '@/constant/icons';
 import dataProjects from '@/constant/data-projects';
-import CardContainer from '../common/CardContainer';
+import CardContainer from '../../../common/CardContainer';
 
 export default function CardProjects() {
   return (
@@ -12,7 +12,10 @@ export default function CardProjects() {
       {dataProjects.slice(0, 3).map((data) => (
         <Link href={data.to} key={data.title} data-aos="fade-up">
           <Card>
-            <Card.CardMedia src={data.image.thumbnail} alt={`Project ${data.title}`} />
+            <Card.CardMedia
+              src={data.image.thumbnail}
+              alt={`Project ${data.title}`}
+            />
             <Card.CardContent>
               <div className="flex flex-col gap-2">
                 <h2

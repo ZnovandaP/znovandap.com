@@ -3,8 +3,8 @@ import { BsArrowRight } from 'react-icons/bs';
 import { LuLayout } from 'react-icons/lu';
 import Line from '@/components/Decoration/Line';
 import CardProjects from './CardProjects';
-import PrologueSection from '../common/PrologueSection';
-import EpilogueSection from '../common/EpilogueSection';
+import PrologueSection from '../../../common/PrologueSection';
+import EpilogueSection from '../../../common/EpilogueSection';
 
 export default function LatestProjects() {
   return (

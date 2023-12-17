@@ -2,8 +2,8 @@ import * as React from 'react';
 import { LuNewspaper } from 'react-icons/lu';
 import { BsArrowRight } from 'react-icons/bs';
 import Line from '@/components/Decoration/Line';
-import PrologueSection from '../common/PrologueSection';
-import EpilogueSection from '../common/EpilogueSection';
+import PrologueSection from '../../../common/PrologueSection';
+import EpilogueSection from '../../../common/EpilogueSection';
 import CardBlogs from './CardBlogs';
 
 export default function LatestBlogs() {
