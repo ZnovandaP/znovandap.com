@@ -16,7 +16,7 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
   const postTimeAgo = moment(data.date).fromNow();
 
   return (
-    <Link href={`blog/post/${slug}`} key={data.title} data-aos="fade-up">
+    <Link href={`blog/post/${slug}`} data-aos="fade-up">
       <Card>
         <Card.CardMedia
           src={data.image}
