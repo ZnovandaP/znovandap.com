@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MdAccessTime } from 'react-icons/md';
+import { SiReaddotcv } from 'react-icons/si';
 import { MetadataBlog } from '@/types/mdx';
 import Link from 'next/link';
 import moment from 'moment';
@@ -36,7 +36,7 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
                 {`${datePostFormat} - ${postTimeAgo}`}
               </p>
               <p className="center gap-1 opacity-80">
-                <MdAccessTime />
+                <SiReaddotcv />
                 {`${data.readingDuration} minute`}
               </p>
             </div>
