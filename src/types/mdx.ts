@@ -10,6 +10,6 @@ export type MetadataBlog = {
 
 export type MdxFileProps = {
   slug: string
-  frontMatter: Record<string, any>
+  frontMatter: MetadataBlog
   content: string
 };
