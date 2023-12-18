@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^1.6.2",
     "framer-motion": "^10.16.14",
     "gray-matter": "^4.0.3",
     "moment": "^2.29.4",
@@ -26,6 +27,7 @@
     "remark-gfm": "^4.0.0",
     "remark-mdx": "^3.0.0",
     "remark-parse": "^11.0.0",
+    "swr": "^2.2.4",
     "tailwind-merge": "^2.1.0",
     "zustand": "^4.4.7"
   },
