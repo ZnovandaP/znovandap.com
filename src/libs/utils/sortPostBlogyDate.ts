@@ -12,7 +12,7 @@ export const latestPostBlogs = () => {
   });
 };
 
-export const newestPostBlog = () => {
+export const oldestPostBlog = () => {
   const getAllPostBlogs = loadMdXFile('blogs');
 
   return getAllPostBlogs.sort((post1, post2) => {
