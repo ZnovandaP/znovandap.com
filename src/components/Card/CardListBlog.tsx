@@ -46,7 +46,7 @@ export default function CardListBlog({ data, slug }: CardListBlogProps) {
 
           <div className="mt-4 flex items-center gap-2">
             {data.tags?.map((stack) => (
-              <BadgeTags stack={stack} />
+              <BadgeTags stack={stack} key={stack} />
             ))}
           </div>
         </Card.CardContent>
