@@ -8,6 +8,7 @@ import getDataBlogPostSortBy from '@/service/blog-post-fetcher';
 import CardListBlog from '@/components/Card/CardListBlog';
 import SkeletonCardBlog from '@/components/Skeleton/SkeletonCardBlog';
 import SkeletonCardListBlog from '@/components/Skeleton/SkeletonCardListBlog';
+import ErrorResponse from '@/components/ErrorResponse';
 
 type PresentingBlogContentsProps = {
   sortByDate: string
@@ -19,17 +20,20 @@ const baseUrl = process.env.NEXT_PUBLIC_DOMAIN;
 export default function PresentingBlogContents(
   { sortByDate, currentLayout }: PresentingBlogContentsProps,
 ) {
-  const { data, error, isLoading } = useSWR(
+  const {
+    data, error, isLoading, isValidating,
+  } = useSWR(
     `${baseUrl}/api/blogpost?sort=${sortByDate}`,
     getDataBlogPostSortBy,
     {
-      revalidateOnMount: true,
+      errorRetryInterval: 20 * 1000,
+      errorRetryCount: 1,
     },
   );
 
   return (
     <section>
-      {isLoading && currentLayout === 'grid' ? (
+      {(isLoading || isValidating) && currentLayout === 'grid' ? (
         <CardContainer>
           {Array.from(new Array(6).keys()).map((key) => (
             <SkeletonCardBlog key={key} />
@@ -37,7 +41,7 @@ export default function PresentingBlogContents(
         </CardContainer>
       ) : null}
 
-      {isLoading && currentLayout === 'list' ? (
+      {(isLoading || isValidating) && currentLayout === 'list' ? (
         <div className="grid grid-cols-1 gap-8 mt-8">
           {Array.from(new Array(6).keys()).map((key) => (
             <SkeletonCardListBlog key={key} />
@@ -64,6 +68,8 @@ export default function PresentingBlogContents(
           ))}
         </div>
       )}
+
+      {error && (<ErrorResponse error={error} />)}
     </section>
   );
 }
