@@ -9,6 +9,7 @@ export type MetadataBlog = {
 };
 
 export type MdxFileProps = {
+  id:string
   slug: string
   frontMatter: MetadataBlog
   content: string
