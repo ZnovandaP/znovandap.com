@@ -34,7 +34,7 @@ export default function PresentingBlogContents(
       {currentLayout === 'grid' && (
         <CardContainer>
           {data?.data?.map((post) => (
-            <CardBlog data={post?.frontMatter} slug={post?.slug} key={post?.frontMatter?.title} />
+            <CardBlog data={post?.frontMatter} slug={post?.slug} key={post?.id} />
           ))}
         </CardContainer>
       )}
@@ -42,7 +42,11 @@ export default function PresentingBlogContents(
       {currentLayout === 'list' && (
         <div className="grid grid-cols-1 gap-8 mt-8">
           {data?.data?.map((post) => (
-            <CardListBlog data={post?.frontMatter} slug={post?.slug} key={+new Date()} />
+            <CardListBlog
+              data={post?.frontMatter}
+              slug={post?.slug}
+              key={post?.id}
+            />
           ))}
         </div>
       )}
