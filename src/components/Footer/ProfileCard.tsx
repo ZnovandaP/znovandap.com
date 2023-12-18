@@ -5,7 +5,7 @@ import { SiGmail, SiLinkedin } from 'react-icons/si';
 
 export default function ProfileCard() {
   return (
-    <div className="center gap-6">
+    <div className="center flex-col gap-6 sm:flex-row">
       <ProfileCard.ProfilePicture />
       <ProfileCard.ProfileContact />
     </div>
@@ -31,7 +31,7 @@ function ProfilePicture() {
 function ProfileContact() {
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-xl text-sky-800 dark:text-sky-500 font-semibold">
+      <p className="text-xl text-sky-800 dark:text-sky-500 font-semibold  text-center sm:text-left">
         Contact me via
       </p>
 
