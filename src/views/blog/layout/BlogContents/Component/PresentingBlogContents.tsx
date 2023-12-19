@@ -20,9 +20,7 @@ const baseUrl = process.env.NEXT_PUBLIC_DOMAIN;
 export default function PresentingBlogContents(
   { sortByDate, currentLayout }: PresentingBlogContentsProps,
 ) {
-  const {
-    data, error, isLoading, isValidating,
-  } = useSWR(
+  const { data, error, isLoading } = useSWR(
     `${baseUrl}/api/blogpost?sort=${sortByDate}`,
     getDataBlogPostSortBy,
     {
@@ -33,7 +31,7 @@ export default function PresentingBlogContents(
 
   return (
     <section>
-      {(isLoading || isValidating) && currentLayout === 'grid' ? (
+      {isLoading && currentLayout === 'grid' ? (
         <CardContainer>
           {Array.from(new Array(6).keys()).map((key) => (
             <SkeletonCardBlog key={key} />
@@ -41,7 +39,7 @@ export default function PresentingBlogContents(
         </CardContainer>
       ) : null}
 
-      {(isLoading || isValidating) && currentLayout === 'list' ? (
+      {isLoading && currentLayout === 'list' ? (
         <div className="grid grid-cols-1 gap-8 mt-8">
           {Array.from(new Array(6).keys()).map((key) => (
             <SkeletonCardListBlog key={key} />
