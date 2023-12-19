@@ -3,7 +3,7 @@ import TitleHead from '@/components/Typography/TitleHead';
 
 type PrologueSectionProps = {
   title: string
-  icon: React.ReactElement
+  icon?: React.ReactElement
   paragraph: string
 };
 export default function PrologueSection({ title, icon, paragraph }: PrologueSectionProps) {
