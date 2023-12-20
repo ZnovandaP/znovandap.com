@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { MetadataBlog } from '@/types/mdx';
 import Image from 'next/image';
-import Icons from '@/constant/icons';
 import MdxComponent from '../MdxComponent';
 import Line from '../Decoration/Line';
+import BadgeTags from '../Badge/BadgeTags';
 
 type PageBodyProps = {
+  page: 'blog' | 'project'
   data: MetadataBlog
   mdxContent: string
 };
 
-export default function PageBody({ data, mdxContent }: PageBodyProps) {
+export default function PageBody({ data, mdxContent, page }: PageBodyProps) {
   return (
     <section className="px-8 pb-0 sm:py-0">
       <div className="center rounded-lg overflow-hidden">
@@ -30,27 +31,21 @@ export default function PageBody({ data, mdxContent }: PageBodyProps) {
         </MdxComponent>
       </article>
 
-      <Line className="my-8" size="sm" />
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl font-semibold">
-          Tags
-        </h2>
-        <div className="flex items-center gap-4 flex-wrap">
-          {data.tags.map((tag) => (
-            <div
-              className="center gap-2 px-3 py-2 ring-1 ring-stone-500 rounded-full font-medium"
-              key={tag}
-            >
-              {Icons[tag] && (
-              <span className="text-xl">
-                {Icons[tag]}
-              </span>
-              )}
-              {tag}
+      {page === 'blog' && (
+        <>
+          <Line className="my-8" size="sm" />
+          <div className="flex flex-col gap-4">
+            <h2 className="text-2xl font-semibold">
+              Tags
+            </h2>
+            <div className="flex items-center gap-4 flex-wrap">
+              {data.tags.map((tag) => (
+                <BadgeTags size="md" stack={tag} key={tag} />
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
     </section>
   );
 }
