@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CardBlog from '@/components/Card/CardBlog';
 import { latestPostBlogs } from '@/libs/utils/sortPostBlogyDate';
+import { MetadataBlog } from '@/types/mdx';
 import CardContainer from '../../../common/CardContainer';
 
 export default function CardBlogs() {
@@ -8,7 +9,7 @@ export default function CardBlogs() {
   return (
     <CardContainer>
       {latestPosts.map((post) => (
-        <CardBlog data={post.frontMatter} slug={post.slug} key={post.slug} />
+        <CardBlog data={post.frontMatter as MetadataBlog} slug={post.slug} key={post.slug} />
       ))}
     </CardContainer>
   );
