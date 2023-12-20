@@ -2,11 +2,13 @@
 
 import * as React from 'react';
 import useIsMobile from '@/libs/hooks/useIsMobile';
-import ControlBlogPost from './Component/ControlBlogPost';
-import PresentingBlogContents from './Component/PresentingBlogContents';
+import ControlBlogPost from '../../../common/ControlBlogPost';
+import PresentingBlogContents from './PresentingBlogContents';
 
 export default function BlogContents() {
-  const [currentLayout, setCurrentLayout] = React.useState<'list' | 'grid'>('grid');
+  const [currentLayout, setCurrentLayout] = React.useState<'list' | 'grid'>(
+    'grid',
+  );
   const [selectPost, setSelectPost] = React.useState('latest');
   const { isMobileViewport } = useIsMobile();
 
@@ -22,7 +24,10 @@ export default function BlogContents() {
         setSelectPost={setSelectPost}
         setCurrentLayout={setCurrentLayout}
       />
-      <PresentingBlogContents sortByDate={selectPost} currentLayout={currentLayout} />
+      <PresentingBlogContents
+        sortByDate={selectPost}
+        currentLayout={currentLayout}
+      />
     </section>
   );
 }
