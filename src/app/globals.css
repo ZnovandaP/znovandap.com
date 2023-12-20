@@ -18,3 +18,8 @@
   }
 }
 
+table {
+  @apply mt-6 mx-auto
+}
+
+
