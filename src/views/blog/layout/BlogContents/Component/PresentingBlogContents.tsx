@@ -9,6 +9,7 @@ import CardListBlog from '@/components/Card/CardListBlog';
 import SkeletonCardBlog from '@/components/Skeleton/SkeletonCardBlog';
 import SkeletonCardListBlog from '@/components/Skeleton/SkeletonCardListBlog';
 import ErrorResponse from '@/components/ErrorResponse';
+import { MetadataBlog } from '@/types/mdx';
 
 type PresentingBlogContentsProps = {
   sortByDate: string
@@ -50,7 +51,7 @@ export default function PresentingBlogContents(
       {currentLayout === 'grid' && (
         <CardContainer>
           {data?.data?.map((post) => (
-            <CardBlog data={post?.frontMatter} slug={post?.slug} key={post?.id} />
+            <CardBlog data={post?.frontMatter as MetadataBlog} slug={post?.slug} key={post?.id} />
           ))}
         </CardContainer>
       )}
@@ -59,7 +60,7 @@ export default function PresentingBlogContents(
         <div className="grid grid-cols-1 gap-8 mt-8">
           {data?.data?.map((post) => (
             <CardListBlog
-              data={post?.frontMatter}
+              data={post?.frontMatter as MetadataBlog}
               slug={post?.slug}
               key={post?.id}
             />
