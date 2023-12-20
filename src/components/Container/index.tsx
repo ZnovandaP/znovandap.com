@@ -6,7 +6,7 @@ type ContainerProps = {
   className?: React.HTMLProps<HTMLElement>['className']
 };
 
-export default function Container({ children, className }: ContainerProps) {
+export default function Container({ children, className, ...other }: ContainerProps) {
   return (
     <section
       className={cn(
@@ -22,6 +22,7 @@ export default function Container({ children, className }: ContainerProps) {
 
         className,
       )}
+      {...other}
     >
       {children}
     </section>
