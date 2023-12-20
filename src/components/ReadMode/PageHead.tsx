@@ -7,19 +7,27 @@ import moment from 'moment';
 import { IoMdTime } from 'react-icons/io';
 import { MetadataBlog } from '@/types/mdx';
 import Line from '../Decoration/Line';
+import ButtonBack from '../Button/ButtonBack';
 
 type PageHeadProps = {
   data: MetadataBlog
+  page?: 'blog' | 'project'
 };
 
-export default function PageHead({ data }: PageHeadProps) {
+export default function PageHead({ data, page = 'blog' }: PageHeadProps) {
   return (
     <section className="p-8 pb-0 sm:py-0">
-      <Title data={data} />
+      {page === 'blog' && (
+        <>
+          <ButtonBack className="mb-4" to="/blog" />
 
-      <AdditionalInformation data={data} />
+          <Title data={data} />
 
-      <Line size="sm" className="my-8" />
+          <AdditionalInformation data={data} />
+
+          <Line size="sm" className="my-8" />
+        </>
+      )}
     </section>
   );
 }
