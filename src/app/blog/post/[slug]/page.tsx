@@ -1,13 +1,8 @@
 import * as React from 'react';
+import BlogPostViews from '@/views/blog/slug';
 
-type BlogPostPageProps = {
-
-};
-
-export default function BlogPostPage(props: BlogPostPageProps) {
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
   return (
-    <div>
-      page
-    </div>
+    <BlogPostViews slug={params.slug} />
   );
 }
