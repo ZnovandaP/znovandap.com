@@ -22,6 +22,6 @@ export type MetadataProject = {
 export type MdxFileProps = {
   id:string
   slug: string
-  frontMatter: MetadataBlog | MetadataProject
+  frontMatter: Record<string, unknown>
   content: string
 };

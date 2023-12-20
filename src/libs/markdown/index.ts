@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMdx from 'remark-mdx';
 import remarkParse from 'remark-parse';
 import { v4 } from 'uuid';
-import { MdxFileProps, MetadataBlog, MetadataProject } from '@/types/mdx';
+import { MdxFileProps } from '@/types/mdx';
 
 type FolderContents = 'blogs' | 'projects';
 
@@ -39,20 +39,11 @@ const loadMdXFile = (folder?: FolderContents): MdxFileProps[] | [] => {
 
     const mdxContent = mdxCompiler.processSync(content).toString();
 
-    if (folder === 'projects') {
-      return {
-        id: v4(),
-        slug: file.replace(/\.mdx?$/, ''),
-        content: mdxContent,
-        frontMatter: data as MetadataProject,
-      };
-    }
-
     return {
       id: v4(),
       slug: file.replace(/\.mdx?$/, ''),
       content: mdxContent,
-      frontMatter: data as MetadataBlog,
+      frontMatter: data,
     };
   });
 
