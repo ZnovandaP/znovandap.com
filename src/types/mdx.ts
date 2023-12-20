@@ -8,9 +8,20 @@ export type MetadataBlog = {
   readingDuration: number // in minute
 };
 
+export type MetadataProject = {
+  title: string
+  subtitle: string
+  date: string
+  image: string
+  thumbnail: string
+  theme: string
+  stacks: string[]
+  projectType: string
+};
+
 export type MdxFileProps = {
   id:string
   slug: string
-  frontMatter: MetadataBlog
+  frontMatter: MetadataBlog | MetadataProject
   content: string
 };
