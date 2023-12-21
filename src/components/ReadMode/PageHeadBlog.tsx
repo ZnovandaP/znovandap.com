@@ -11,23 +11,18 @@ import ButtonBack from '../Button/ButtonBack';
 
 type PageHeadProps = {
   data: MetadataBlog
-  page?: 'blog' | 'project'
 };
 
-export default function PageHead({ data, page = 'blog' }: PageHeadProps) {
+export default function PageHeadBlog({ data }: PageHeadProps) {
   return (
     <section className="p-8 pb-0 sm:py-0">
-      {page === 'blog' && (
-        <>
-          <ButtonBack className="mb-4" to="/blog" />
+      <ButtonBack className="mb-4" to="/blog" />
 
-          <Title data={data} />
+      <Title data={data} />
 
-          <AdditionalInformation data={data} />
+      <AdditionalInformation data={data} />
 
-          <Line size="sm" className="my-8" />
-        </>
-      )}
+      <Line size="sm" className="my-8" />
     </section>
   );
 }
