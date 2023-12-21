@@ -16,8 +16,8 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
   const datePostFormat = moment(data.date).format('ll');
   const postTimeAgo = moment(data.date).fromNow();
   return (
-    <section className="relative">
-      <Link href={`projects/${slug}`} data-aos="fade-up">
+    <section className="relative" data-aos="fade-up">
+      <Link href={`projects/${slug}`}>
         <Card className="flex items-center">
           <Card.CardListMedia
             src={data.image}
