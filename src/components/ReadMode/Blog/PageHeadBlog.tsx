@@ -6,37 +6,27 @@ import * as React from 'react';
 import moment from 'moment';
 import { IoMdTime } from 'react-icons/io';
 import { MetadataBlog } from '@/types/mdx';
-import Line from '../Decoration/Line';
-import ButtonBack from '../Button/ButtonBack';
+import TitleHead from '../common/TitleHead';
+import Line from '../../Decoration/Line';
+import ButtonBack from '../../Button/ButtonBack';
 
 type PageHeadProps = {
-  data: MetadataBlog
+  data: MetadataBlog;
 };
 
 export default function PageHeadBlog({ data }: PageHeadProps) {
   return (
     <section className="p-8 pb-0 sm:py-0">
-      <ButtonBack className="mb-4" to="/blog" />
+      <div className="flex">
+        <ButtonBack className="mb-4" to="/blog" text="Back to Blog Menu" />
+      </div>
 
-      <Title data={data} />
+      <TitleHead title={data.title} subtitle={data.subtitle} />
 
       <AdditionalInformation data={data} />
 
       <Line size="sm" className="my-8" />
     </section>
-  );
-}
-
-function Title({ data }: { data: MetadataBlog }) {
-  return (
-    <div className="flex flex-col gap-3">
-      <h1 className="flex items-center gap-2 text-balance text-3xl font-bold sm:text-4xl lg:text-5xl">
-        {data.title}
-      </h1>
-      <h3 className="text-lg md:text-xl font-medium opacity-80">
-        {data.subtitle}
-      </h3>
-    </div>
   );
 }
 
