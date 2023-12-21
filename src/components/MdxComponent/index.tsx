@@ -34,7 +34,7 @@ export default function MdxComponent({ children }: MdxComponentProps) {
         a: (props) => (
           <a className="text-sky-500 hover:text-sky-400 hover:underline cursor-pointer" {...props} />
         ),
-        p: (props) => <div {...props} className="font-medium text-balance mt-6 hyphens-auto" />,
+        p: (props) => <div {...props} className="font-medium mt-6 hyphens-auto" />,
         h2: (props) => <h2 className="border-l-[6px] border-sky-500 pl-2 text-2xl text-balance mt-6 font-semibold" {...props} />,
         h3: (props) => <h3 className="border-l-4 border-emerald-300/80 pl-2 text-xl text-balance mt-6 font-semibold" {...props} />,
         ul: (props) => <ul className="pl-10 space-y-3 list-disc pb-5 mt-6" {...props} />,
