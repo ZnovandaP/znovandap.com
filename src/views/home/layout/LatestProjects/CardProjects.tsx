@@ -1,45 +1,20 @@
 import * as React from 'react';
-import Link from 'next/link';
-import Tooltip from '@/components/Tooltip';
-import Card from '@/components/Card/Card';
-import Icons from '@/constant/icons';
-import dataProjects from '@/constant/data-projects';
+import { MetadataProject } from '@/types/mdx';
+import { oldestPostProjects } from '@/libs/utils/sortingPostProjectByDate';
+import CardProject from '@/components/Card/CardProject';
 import CardContainer from '../../../common/CardContainer';
 
 export default function CardProjects() {
+  const latestProjects = oldestPostProjects();
   return (
     <CardContainer>
-      {dataProjects.slice(0, 3).map((data) => (
-        <Link href={data.to} key={data.title} data-aos="fade-up">
-          <Card>
-            <Card.CardMedia
-              src={data.image.thumbnail}
-              alt={`Project ${data.title}`}
-            />
-            <Card.CardContent>
-              <div className="flex flex-col gap-2">
-                <h2
-                  style={{ color: data.theme }}
-                  className="text-xl font-semibold hover:underline hover:decoration-wavy hover:underline-offset-[6px]"
-                >
-                  {data.title}
-                </h2>
-                <p className="font-medium hyphens-auto line-clamp-3">
-                  {data.summary}
-                </p>
-              </div>
+      {latestProjects.slice(0, 3).map((data) => {
+        const frontMatter = data.frontMatter as MetadataProject;
 
-              <div className="mt-4 flex items-center gap-4">
-                {data.stacks?.map((stack) => (
-                  <Tooltip title={stack} key={stack}>
-                    {Icons[stack]}
-                  </Tooltip>
-                ))}
-              </div>
-            </Card.CardContent>
-          </Card>
-        </Link>
-      ))}
+        return (
+          <CardProject data={frontMatter} slug={data.slug} key={data.id} />
+        );
+      })}
     </CardContainer>
   );
 }
