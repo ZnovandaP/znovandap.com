@@ -2,7 +2,7 @@ import * as React from 'react';
 import BlogPostViews from '@/views/blog/slug';
 import { Metadata } from 'next';
 import loadMdXFile from '@/libs/markdown';
-import { MdxFileProps } from '@/types/mdx';
+import { MdxFileProps, MetadataBlog } from '@/types/mdx';
 import METADATA from '@/constant/metadata';
 
 type BlogPostPageProps = {
@@ -13,18 +13,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const blog = await loadMdXFile()
     .find((post) => post.slug === params.slug) as MdxFileProps;
 
+  const frontMatter = blog.frontMatter as MetadataBlog;
+
   return {
-    title: `${blog.frontMatter.title} ${METADATA.exTitle}`,
-    description: blog.frontMatter.subtitle,
+    title: `${frontMatter.title} ${METADATA.exTitle}`,
+    description: frontMatter.subtitle,
     openGraph: {
-      images: blog.frontMatter.image,
+      images: frontMatter.image,
       url: `${process.env.DOMAIN}/${blog.slug}`,
       siteName: METADATA.openGraph.siteName,
       locale: METADATA.openGraph.locale,
       type: 'article',
       authors: 'Zidane Novanda Putra',
     },
-    keywords: blog.frontMatter.title,
+    keywords: frontMatter.title,
     alternates: {
       canonical: `${process.env.DOMAIN}/blog/post/${blog.slug}`,
     },
