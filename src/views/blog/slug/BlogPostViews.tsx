@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Container from '@/components/Container';
-import PageHeadBlog from '@/components/ReadMode/PageHeadBlog';
 import loadMdXFile from '@/libs/markdown';
 import { MetadataBlog } from '@/types/mdx';
-import PageBody from '@/components/ReadMode/PageBody';
+import PageHeadBlog from '@/components/ReadMode/Blog/PageHeadBlog';
+import PageBodyBlog from '@/components/ReadMode/Blog/PageBodyBlog';
 
 type BlogPostViewsProps = {
   slug: string;
@@ -20,8 +20,7 @@ export default function BlogPostViews({ slug }: BlogPostViewsProps) {
       data-aos-duration="1000"
     >
       <PageHeadBlog data={currentDataBlogPost?.frontMatter as MetadataBlog} />
-      <PageBody
-        page="blog"
+      <PageBodyBlog
         mdxContent={currentDataBlogPost?.content as string}
         data={currentDataBlogPost?.frontMatter as MetadataBlog}
       />
