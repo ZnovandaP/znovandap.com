@@ -17,6 +17,8 @@ export type MetadataProject = {
   theme: string
   stacks: string[]
   projectType: string
+  repository: string
+  livePreview: string
 };
 
 export type MdxFileProps = {
