@@ -20,7 +20,7 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
       <Link href={`projects/${slug}`}>
         <Card className="flex items-center">
           <Card.CardListMedia
-            src={data.image}
+            src={data.thumbnail}
             alt={`Image head ${data.title}`}
           />
 
