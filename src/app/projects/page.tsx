@@ -3,8 +3,8 @@ import ProjectsView from '@/views/projects';
 import { latestPostProjects, oldestPostProjects } from '@/libs/utils/sortingPostProjectByDate';
 
 const dataSort = {
-  oldest: latestPostProjects(),
-  latest: oldestPostProjects(),
+  oldest: oldestPostProjects(),
+  latest: latestPostProjects(),
 };
 
 export default function ProjectsPage() {
