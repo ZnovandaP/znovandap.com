@@ -27,6 +27,7 @@ import {
   SiTypescript,
   SiVite,
   SiSwr,
+  SiMdx,
 } from 'react-icons/si';
 
 type StacksProps = {
@@ -41,6 +42,7 @@ const Icons: StacksProps = {
   JavaScript: <SiJavascript className="text-[#F7DF1E]" />,
   TypeScript: <SiTypescript className="text-[#3178C6]" />,
   HTML: <SiHtml5 className="text-[#E34F26]" />,
+  MDX: <SiMdx className="text-[#F5C518]" />,
   CSS: <SiCss3 className="text-[#1572B6]" />,
   Saas: <SiSass className="text-[#CC6699]" />,
   Bootstrap: <SiBootstrap className="text-[#7952B3]" />,
