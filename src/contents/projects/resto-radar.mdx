@@ -1,6 +1,6 @@
 ---
 title: "Resto Radar"
-subtitle: "Resto Radar is like a Restaurants catalog based on website, This project can provide data restaurant around Nusantara, we can cross check firts of time before we are come go location"
+subtitle: "Resto Radar is like a restaurant catalog based on website, This project can provide data restaurant around Nusantara, we can cross check firts of time before we are come go location"
 date: "2023-07-10"
 image: "/assets_porto/resto_radar/home.svg"
 thumbnail: '/assets_porto/resto_radar/resto_radar.png'
@@ -11,88 +11,84 @@ repository: 'https://github.com/ZnovandaP/dicoding_submission_3_frontend_web_dev
 livePreview: 'https://restoradar.netlify.app/'
 ---
 
-## Introduction
+## Backstory Why Me Made This Project?
 
-This is personal website to showing my projects and blogs
+Project Resto Radar like a restaurant catalog, this project provide data restaurants around the
+Nusantara. Project Resto Radar was build with 3 basic technology for build a website and some 
+package dependencies. These include `HTML`, `SASS`, `Javascript`, `Webpack`, `Axios`, `Jasmine`, and
+`CodeceptJs` for testing framework. Resto Radar has implemented `PWA` (Progressive Web Apps)
+technology. so has implemented PWA on this project has the advantage of a website being like a native
+application. Resto Radar build with `SPA` (Single Page Appliacation) architecture.  
 
-## Features
+### Goals Build This Project
 
-### 📝 Blog
+Main goals for building this project, including the following: 
 
-I love to share blog about programming on Dev.to and i integrated it here using dev.to api
+- To exercise and increase fundamental 3 basic of technology for building website.
+- Deeping `DOM Manipulation` with `Javascript`
+- Learning about how to styling website with CSS Prepropcessor, on this project i'am use `SASS/SCSS`
+- Learning about how to build website with `SPA` architecture
+- Learning about how to build website with `PWA` technology
+- Learning about how write, unit testing, integration testing with `Jasmine` testing framework
+- Learning about how to write end-to-end testing with `CodeceptJs`
 
-### 📚 Roadmap
+I was learning a lot about front-end web development while build this project, after i finish this
+project, i think my programming skills are improved over time. 
 
-I share the roadmap how to become Software Engineer base on my learning path. I designing it by [roadmap.sh](https://roadmap.sh/) and [WPU](https://www.youtube.com/@sandhikagalihWPU). Let's see this awesome feature [here](https://www.codebayu.com/roadmap?tribe=frontend-developer)
+## Feature on Resto Radar Project
 
-### 🏵 Programming Tips
-
-I share a bit tips about programming such as best practice, clean code, and fundamental programming. You can see this feature [here](https://www.codebayu.com/learn)
-
-### 🎨 Portfolio
-
-##Zidane
-Hallo my name is zidane novanda pura
-
-To showcasing my awesome projects. You can see this feature [here](https://www.codebayu.com/projects)
+The Resto Radar Project has several features, including the following:
+  - Has implemented web responsive for multiple device
+  - Home Page
+    - Home section
+    - About project section
+    - Main content
+      - Displaying data restaurants around Nusantara on card restaurant
+      - Displaying some detail data restaurant through modal box 
+      - Feature button preview restaurant on card restaurant 
+      - Feature button like restaurant on modal box or card restaurant 
+      - Feature button detail restaurant on modal box or card restaurant 
+    - Footer Section
+  - Favorite Page
+    - Displaying data restaurants around Nusantara on card restaurant
+    - Displaying some detail data restaurant through modal box 
+    - Feature button preview restaurant on card restaurant 
+    - Feature button like restaurant on modal box or card restaurant 
+    - Feature button detail restaurant on modal box or card restaurant 
+  - Detail Page
+    - Displaying detail data restaurant which user pick
+    - Feature button like restaurant 
+    - Feature comment on detail page 
+  - Contact Page  
 
 ## How to Start this project
 
-### 1. Clone using git
-
-```
-'use client';
-
-import * as React from 'react';
-import { LuClipboardCopy, LuCheckCircle } from 'react-icons/lu';
-import { useCopyToClipboard } from 'usehooks-ts';
-import Tooltip from '../Tooltip';
-
-type ButtonCopyProps = {
-  code: string
-};
-
-
-export default function ButtonCopy({ code }: ButtonCopyProps) {
-  const [isCoppied, setIsCoppied] = React.useState(false);
-  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [value, copy] = useCopyToClipboard();
-
-  const handleCopyClipboard = () => {
-    copy(code);
-    setIsCoppied(true);
-    timeoutRef.current = setTimeout(() => {
-      setIsCoppied(false);
-    }, 2000);
-  };
-
-  return (
-    <Tooltip title="copy">
-      <button
-        className="center text-xl p-2 rounded-full ring-1 ring-stone-500/60 hover:scale-110 active:scale-100 transition duration-300"
-        aria-label="Button Copy clipboard"
-        type="button"
-        onClick={handleCopyClipboard}
-      >
-        { !isCoppied ? (<LuClipboardCopy />) : (<LuCheckCircle className="text-green-500" />)}
-      </button>
-    </Tooltip>
-  );
-}
-
-```
-
-### 2. Install dependencies
+#### 1. Clone repository using git
 
 ```bash
-yarn install
+git clone https://github.com/ZnovandaP/dicoding_submission_3_frontend_web_developer_expert.git
 ```
 
-### 3. Run development server
+#### 2. Install all dependencies
 
 ```bash
-yarn dev
+npm install
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+#### 3. Run development server
+
+```bash
+npm run start-dev
+```
+Open http://localhost:9000 with your browser to see the result.
+
+## Responsive Web Design on Multiple Devices
+
+![Ilustration responsive design Resto Radar Project](/assets_porto/resto_radar/responsive.svg)
+
+
+### Last but not least
+
+if you interested on this project, you can visit this project directly 
+[Resto Radar Project](https://restoradar.netlify.app/), 
+also you can visit on Github [Repository Resto Radar Project](https://github.com/ZnovandaP/dicoding_submission_3_frontend_web_developer_expert/), last if you wanna give me suggesstion or advice you can go to contact page directly. Thankyou so much.  
