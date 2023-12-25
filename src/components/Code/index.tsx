@@ -27,20 +27,18 @@ SyntaxHighlighter.registerLanguage(languages.bash, bash);
 
 type CodeHighlighterProps = {
   className: string
-  inline: boolean
-  children: string
+  children: any
 };
 
 export default function CodeHighlighter({
-  className = '', inline, children, ...other
+  className = '', children, ...other
 }: CodeHighlighterProps) {
   const match = /language-(\w+)/.exec(className || '');
-  return !inline ? (
+  return match ? (
     <div className="relative mt-6">
-      <ButtonCopy code={children.toString()} />
       <SyntaxHighlighter
         {...other}
-        language={match ? match[1] : 'javascript'}
+        language={match ? match[1] : 'typescript'}
         style={themeColor}
         customStyle={{
           borderRadius: '.75rem',
@@ -52,9 +50,10 @@ export default function CodeHighlighter({
       >
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
+      <ButtonCopy code={children.toString()} />
     </div>
   ) : (
-    <code className="font-medium bg-neutral-100 text-sky-600 dark:text-sky-300 dark:bg-neutral-700 py-1 px-2 rounded-md text-[14px]">
+    <code className="font-medium bg-stone-300/80 text-sky-600 dark:text-sky-400 dark:bg-stone-700 py-1 px-2 rounded-md text-[14px]">
       {children}
     </code>
   );
