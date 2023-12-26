@@ -4,11 +4,11 @@ import METADATA from '@/constant/metadata';
 import ContactView from '@/views/contact';
 
 export const metadata: Metadata = {
-  title: `Projects ${METADATA.exTitle}`,
-  description: 'My Projects content sharing about my journey learning programming specially front-end web development',
-  keywords: 'projects znovandap, znovandap projects, zidane novanda putra projects',
+  title: `Contact ${METADATA.exTitle}`,
+  description: 'Contact page on znovandap.com, you can send me a message on this page',
+  keywords: 'contact znovandap, znovandap contact, zidane novanda putra contact',
   alternates: {
-    canonical: `${process.env.DOMAIN}/projects`,
+    canonical: `${process.env.DOMAIN}/contact`,
   },
 };
 
