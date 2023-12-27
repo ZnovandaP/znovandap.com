@@ -17,6 +17,7 @@ export default function LatestBlogs() {
       >
         <PrologueSection
           title="Latest Blogs"
+          type="head-section"
           icon={<LuNewspaper />}
           paragraph="This is my latest post blogs, i'am quite active in sharing the knowledge
     i understand about front-end web development"

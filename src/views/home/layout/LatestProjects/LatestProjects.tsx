@@ -18,6 +18,7 @@ export default function LatestProjects() {
         <PrologueSection
           title="Latest Projects"
           icon={<LuLayout />}
+          type="head-section"
           paragraph="This is my latest project as a front-end web developer, you could say this is a record of my journey to becoming a front-end web developer"
         />
 
