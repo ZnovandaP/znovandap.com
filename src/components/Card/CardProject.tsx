@@ -29,7 +29,7 @@ export default function CardProject({ data, slug }: CardProjectProps) {
             >
               {data.title}
             </h2>
-            <p className="opacity-70">
+            <p className="opacity-70 text-sm">
               {`${datePostFormat} - ${postTimeAgo}`}
             </p>
             <p className="font-medium hyphens-auto line-clamp-3">
