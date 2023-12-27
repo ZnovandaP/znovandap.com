@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import moment from 'moment';
-import { SiReaddotcv } from 'react-icons/si';
+import { IoMdTime } from 'react-icons/io';
 import { MetadataBlog } from '@/types/mdx';
 import BadgeTags from '../Badge/BadgeTags';
 import Card from './Card';
@@ -33,9 +33,9 @@ export default function CardListBlog({ data, slug }: CardListBlogProps) {
               <p className="opacity-70">
                 {`${datePostFormat} - ${postTimeAgo}`}
               </p>
-              <p className="center gap-1 opacity-80">
-                <SiReaddotcv />
-                {`${data.readingDuration} minute`}
+              <p className="center gap-1 opacity-80 text-sky-500">
+                <IoMdTime className="text-base" />
+                {`${data.readingDuration} min to read`}
               </p>
             </div>
 

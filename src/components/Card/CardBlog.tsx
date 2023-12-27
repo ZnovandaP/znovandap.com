@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SiReaddotcv } from 'react-icons/si';
+import { IoMdTime } from 'react-icons/io';
 import { MetadataBlog } from '@/types/mdx';
 import Link from 'next/link';
 import moment from 'moment';
@@ -31,18 +31,18 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
               {data.title}
             </h2>
 
-            <div className="flex items-center justify-between text-sm font-medium ">
-              <p className="opacity-70">
-                {`${datePostFormat} - ${postTimeAgo}`}
-              </p>
-              <p className="center gap-1 opacity-80">
-                <SiReaddotcv />
-                {`${data.readingDuration} minute`}
-              </p>
-            </div>
-
             <p className="font-medium hyphens-auto line-clamp-3">
               {data.subtitle}
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:justify-between gap-y-1 mt-2 text-sm font-medium ">
+            <p className="flex order-2 sm:order-first opacity-70">
+              {`${datePostFormat} - ${postTimeAgo}`}
+            </p>
+            <p className="flex order-1 sm:order-2 sm:center gap-1 opacity-80 text-sky-500">
+              <IoMdTime className="text-base" />
+              {`${data.readingDuration} min to read`}
             </p>
           </div>
 
