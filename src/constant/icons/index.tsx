@@ -28,6 +28,7 @@ import {
   SiVite,
   SiSwr,
   SiMdx,
+  SiReacthookform,
 } from 'react-icons/si';
 
 type StacksProps = {
@@ -62,6 +63,7 @@ const Icons: StacksProps = {
   Jasmine: <SiJasmine className="text-[#8A4182]" />,
   CodeceptJs: <SiCodeceptjs className="text-[#F6E05E]" />,
   Redux: <SiRedux className="text-[#764ABC]" />,
+  ReactHookForm: <SiReacthookform className="text-[#EC5990]" />,
   Zustand: '🐻',
 };
 
