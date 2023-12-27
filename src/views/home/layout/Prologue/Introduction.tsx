@@ -11,16 +11,17 @@ export default function Introduction() {
 
         <p className="font-medium text-balance text-center">
           Passionate web development with strong focused on front-end web
-          development. Proficient in
+          development. With a strong foundation in
           <LinkInParagraph
-            text=" javascript,"
+            text=" Javascript,"
             href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript"
           />
           <LinkInParagraph
             text=" Typescript "
             href="https://www.typescriptlang.org/"
           />
-          and well-versed in all aspects of web technologies. currently focus on
+          With a comprehensive understanding of various frontend libraries and frameworks.
+          Currently focus on
           <LinkInParagraph text=" React.js " href="https://react.dev/" />
           and
           <LinkInParagraph text=" Next.js " href="https://nextjs.org/" />
