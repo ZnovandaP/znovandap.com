@@ -10,6 +10,7 @@ import TopLoader from '@/components/TopLoader';
 import AosInit from '@/components/Aos';
 import cn from '@/libs/utils/cn';
 import './globals.css';
+import Main from '@/components/Main';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -56,9 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <NavbarMobile />
           </header>
 
-          <main>
+          <Main>
             {children}
-          </main>
+          </Main>
 
           <Footer />
         </NextThemeProvider>
