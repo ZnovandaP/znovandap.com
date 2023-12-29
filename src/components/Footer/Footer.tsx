@@ -1,3 +1,9 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
+'use client';
+
+import useOpenNavStore from '@/libs/zustand/nav-menu-store';
 import * as React from 'react';
 import Image from 'next/image';
 import Container from '../Container';
@@ -7,8 +13,17 @@ import BodyFooter from './BodyFooter';
 import CopyrightFooter from './CopyrightFooter';
 
 export default function Footer() {
+  const closeNavMenu = useOpenNavStore((state) => state.setClose);
+
+  const handleClickFooter = () => {
+    closeNavMenu();
+  };
+
   return (
-    <footer className="bg-gradient-to-t from-blue-600 via-blue-500/50 to-blue-300/30 dark:from-slate-950/80 dark:via-blue-900/40 dark:to-blue-400/10 pb-36 pt-6 px-6 mt-8 sm:pb-8">
+    <footer
+      onClick={handleClickFooter}
+      className="bg-gradient-to-t from-blue-600 via-blue-500/50 to-blue-300/30 dark:from-slate-950/80 dark:via-blue-900/40 dark:to-blue-400/10 pb-36 pt-6 px-6 mt-8 sm:pb-8"
+    >
       <Container className="relative overflow-hidden sm:px-8">
         <section className="flex flex-col gap-8">
           <HeadFooter />
