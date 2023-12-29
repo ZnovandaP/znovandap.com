@@ -4,6 +4,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import cn from '@/libs/utils/cn';
+import Link from 'next/link';
 
 const myFullname = [
   {
@@ -67,22 +68,24 @@ export default function Author() {
         }}
         className="group center overflow-hidden bg-stone-100/5 backdrop-blur-sm rounded-full shadow-lg shadow-stone-600/80 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 hover:backdrop-blur-none hover:scale-105 transition-all duration-300"
       >
-        <Image
-          src="/author.webp"
-          alt="Author"
-          priority
-          width={500}
-          height={500}
-          className={cn(
-            'w-[130px] h-[130px] object-cover object-center group-hover:scale-110',
+        <Link href="/about">
+          <Image
+            src="/author.webp"
+            alt="Author"
+            priority
+            width={500}
+            height={500}
+            className={cn(
+              'w-[130px] h-[130px] object-cover object-center group-hover:scale-110',
 
-            'sm:w-[150px] sm:h-[150px]',
+              'sm:w-[150px] sm:h-[150px]',
 
-            'md:w-[170px] md:h-[170px]',
+              'md:w-[170px] md:h-[170px]',
 
-            'lg:w-[180px] lg:h-[180px]',
-          )}
-        />
+              'lg:w-[180px] lg:h-[180px]',
+            )}
+          />
+        </Link>
       </motion.div>
     </div>
   );
