@@ -1,5 +1,5 @@
 import {
-  LuHome, LuUser2, LuNewspaper, LuLayout, LuMailbox, LuPuzzle, LuLayoutDashboard,
+  LuHome, LuUser2, LuNewspaper, LuLayout, LuMailbox, LuPuzzle,
 } from 'react-icons/lu';
 
 const dataNavbar = [
@@ -32,11 +32,6 @@ const dataNavbar = [
     title: 'Entertaiment',
     pathname: '/entertaiment',
     Icon: LuPuzzle,
-  },
-  {
-    title: 'Dashboard',
-    pathname: '/dashboard',
-    Icon: LuLayoutDashboard,
   },
 ];
 
