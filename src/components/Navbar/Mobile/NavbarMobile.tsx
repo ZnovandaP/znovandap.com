@@ -46,7 +46,7 @@ export default function NavbarMobile() {
           </li>
 
           <AdditionalMenu isOpenMenu={isOpen} isOpenDarkMenu={openDarkModeMenu} isMobile>
-            <ul className="flex flex-col items-center gap-1 relative">
+            <ul className="flex flex-col items-center gap-4 relative">
               {dataNavbar.slice(lastIndexForShowingItem, dataNavbar.length).map((item) => (
                 <NavItem data={item} key={item.title} row />
               ))}
