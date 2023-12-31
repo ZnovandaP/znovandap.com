@@ -1,0 +1,456 @@
+---
+title: "How to Centering Element with CSS"
+subtitle: "Tips and Trick How to centering HTML elements using CSS"
+date: "2023-12-28"
+image: "/blog/centering-element/head.jpg"
+tags: ['HTML', 'CSS']
+language: "Engglish"
+readingDuration: 8
+---
+
+## Summary
+
+There are some developers who still have a little difficulty in creating proportional layouts (with CSS) in development during the development period of the website project. But, don't worry, after reading this post you will definitely be able to improve your skills and knowledge in layout using CSS.
+
+## Centering Element Horizontally
+
+### Centering element horizontally with margin property
+
+``` html
+<div class="box center">
+  BOX
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Layout Box */
+.center: {
+  margin: auto
+}
+```
+### Centering element horizontally with position property
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+  position: relative;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Layout Box */
+.center: {
+  position: absolute;
+  left: 50%; /*  right: 50%; */
+  transform: translateX(-50%) /*  translateX(50%) */
+}
+```
+
+### Centering element horizontally with flex-box
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+  display: flex;
+  justify-content: center;
+}
+```
+
+### Centering element horizontally with grid
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+  display: grid;
+  justify-items: center;
+}
+```
+## Centering Element vertically
+
+### Centering element vertically with position
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+  position: relative;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Layout Box */
+.center: {
+  position: absolute;
+  top: 50%; /*  bottom: 50%; */
+  transform: translateY(-50%) /*  translateY(50%) */
+}
+```
+
+### Centering element vertically with flex-box
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+   width: 13rem;
+  height: 13rem;
+  display: flex;
+  align-items: center;
+}
+```
+
+### Centering element vertically with grid
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+   width: 13rem;
+  height: 13rem;
+  display: flex;
+  align-items: center;
+}
+```
+### Centering element vertically with flex-box
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+   width: 13rem;
+  height: 13rem;
+  display: grid;
+  align-items: center;
+}
+```
+
+## Centering Element (Horizontally and Vertically)
+
+### Centering element with position
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+  position: relative;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Layout Box */
+.center: {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+```
+
+### Centering element with flex-box
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+   width: 13rem;
+  height: 13rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+```
+
+### Centering element with grid
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+   width: 13rem;
+  height: 13rem;
+  display: flex;
+  align-items: center;
+}
+```
+### Centering element vertically with flex-box
+
+``` html
+<div class="wrapper">
+  <div class="box center">
+    BOX
+  </div>
+</div>
+```
+
+``` css
+/*  Global Reset Layout CSS */
+
+* : {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Styling Box */
+.box: {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/*  Styling wrapper */
+.wrapper: {
+   width: 13rem;
+  height: 13rem;
+  display: grid;
+  place-items: center;
+}
+```
+That's all I can share, thank you for reading this post, I hope it's useful and see you in the next post
+
+Reference: 
+  - image from [Unsplash.com](https://unsplash.com/)

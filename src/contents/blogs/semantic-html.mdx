@@ -1,0 +1,98 @@
+---
+title: "Write Semantic HTML"
+subtitle: "Improve best practice and better User Experience with Semantic HTML"
+date: "2023-12-27"
+image: "/blog/semantic-html/head.jpg"
+tags: ['HTML']
+language: "Engglish"
+readingDuration: 3
+---
+
+## Intorduction Semantic HTML
+
+Semantic means "relating to meaning". Writing semantic HTML means using HTML elements to structure your content based on each element's meaning, not its appearance. Semantic HTML is feature from HTML 5
+for improve use of tag HTML base on name tag and their function.
+
+On the example of implementing Semantic HTML, Is it still possible to use `<div>` tags to create buttons? Once you read this, it's best not to do it again. Why? because if you going to create button with `<div>`, this will worsen the user experience.
+
+The main goals implement semantic HTML is improve your HTML code to make it easier to read and maintain for developer and end user. End user? with semantic HTML the browser can be knowing and tracking the tag with semantic for better accesibility. tag `<div>` and `<span>` actually it doesn't mean there are is general tag. With general tag the browser not knowing what the purpose that tags.
+
+AccesibilityThe in question is the screen reader. Screen readers are intended for users who have physical limitations in their daily use of technology. Actually, there are still many semantic tags in HTML, but this blog will introduce several HTML semantic tags
+
+## implementation Semantic HTML
+
+### Before use semantic HTML
+
+```html
+<!-- index.html -->
+  ...
+  <div>
+    <span>Three words</span>
+    <div>
+      <a>one word</a>
+      <a>one word</a>
+      <a>one word</a>
+      <a>one word</a>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>five words</div>
+    </div>
+    <div>
+      <div>three words</div>
+      <div>forty-six words</div>
+      <div>forty-four words</div>
+    </div>
+    <div>
+      <div>seven words</h2>
+      <div>sixty-eight words</div>
+      <div>forty-four words</div>
+    </div>
+  </div>
+  <div>
+    <span>footer</span>
+  </div>
+```
+
+### After use semantic HTML
+
+```html
+<!-- index.html -->
+  ...
+<header>
+  <h1>Three words</h1>
+  <nav>
+    <a>one word</a>
+    <a>one word</a>
+    <a>one word</a>
+    <a>one word</a>
+  </nav>
+</header>
+<main>
+  <header>
+    <h1>five words</h1>
+  </header>
+  <section>
+    <h2>three words</h2>
+    <p>forty-six words</p>
+    <p>forty-four words</p>
+  </section>
+  <section>
+    <h2>seven words</h2>
+    <p>sixty-eight words</p>
+    <p>forty-four words</p>
+  </section>
+</main>
+<footer>
+  <p>five words</p>
+</footer>
+```
+From the code above there are quite clear and significant differences. Of course, HTML code that implements HTML semantics is much easier to read and maintain than code that does not implement semantic HTML.
+
+That's all I can share, thank you for reading this post, I hope it's useful and see you in the next post
+
+Reference: 
+  - image from [Unsplash.com](https://unsplash.com/)
+  - https://web.dev/learn/html/semantic-html
+  - https://developer.mozilla.org/en-US/docs/Glossary/Semantics

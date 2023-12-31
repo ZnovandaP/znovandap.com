@@ -1,0 +1,110 @@
+---
+title: "cn() Utility Function for React + Tailwind"
+subtitle: "Write TailwindCSS cleanly and allows condition className without conflict"
+date: "2023-12-30"
+image: "/blog/cn-utility-function/head.jpg"
+tags: ['React', 'TailwindCSS']
+language: "Engglish"
+readingDuration: 7
+---
+
+## Summary
+
+[Tailwind CSS](https://tailwindcss.com/) is a popular modern CSS framework based on highly flexible utility class. TailwindCSS also allows combine with [ReactJs](https://react.dev/). React + TailwindCSS is a very good and flexible combination. Even though TailwindCSS has great flexibility, it has the disadvantage that our code becomes sloppy when we apply complex styles. 
+
+
+Don't worry, this post will discuss how to overcome this problem, this post will provide a solution on how to cover the shortcomings of TailwindCSS with the `clsx` and `tailwind-merge` libraries
+
+### 1. Install Package Dependencies `clsx` and `TW-merge`
+
+```bash
+npm install clsx tailwind-merge
+
+pnpm add clsx tailwind-merge
+
+yarn add clsx tailwind-merge
+```
+
+### 2. Create function utility `cn()` (`clsx` + `tailwind-merge`)
+
+#### Typescript
+
+```ts
+// cn.ts
+import { twMerge } from 'tailwind-merge';
+import { clsx, ClassValue } from 'clsx';
+
+const cn = (...input: ClassValue[]) => (twMerge(clsx(input)));
+
+export default cn;
+```
+
+#### Javascript
+
+
+```js
+// cn.js
+import { twMerge } from 'tailwind-merge';
+import { clsx } from 'clsx';
+
+const cn = (...input) => (twMerge(clsx(input)));
+
+export default cn;
+```
+### 3. Usage in React Component
+
+#### TSX (Typescript + XML)
+
+```tsx
+// Buttoon.tsx
+import * as React from 'react';
+import cn from './cn';
+
+type ButtonProps = {
+  type: 'button' | 'submit'
+  variant?: 'contained' | 'outlined'
+  children: React.ReactNode
+}
+
+export default function Button({type, variant = 'contained', children}: ButtonProps) {
+  return (
+    <button
+      type={type}
+      className={cn(
+        'flex justify-center items-center px-4 py-2 rounded-lg hover:scale-110 active:100 font-medium transition-all duration-300',
+
+        variant === 'contained' && 'bg-sky-600 text-stone-50',
+
+        variant === 'outlined' && 'bg-transparent text-stone-600 ring-2 ring-sky-600',
+      )}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+#### JSX (Javascript + XML)
+
+```jsx
+// Buttoon.tsx
+import * as React from 'react';
+import cn from './cn';
+
+export default function Button({type, variant = 'contained', children}) {
+  return (
+    <button
+      type={type}
+      className={cn(
+        'flex justify-center items-center px-4 py-2 rounded-lg hover:scale-110 active:100 font-medium transition-all duration-300',
+
+        variant === 'contained' && 'bg-sky-600 text-stone-50',
+
+        variant === 'outlined' && 'bg-transparent text-stone-600 ring-2 ring-sky-600',
+      )}
+    >
+      {children}
+    </button>
+  )
+}
+```
