@@ -41,9 +41,9 @@ export default function MdxComponent({ children }: MdxComponentProps) {
           />
         ),
         p: (props) => <div {...props} className="font-medium mt-6 hyphens-auto" />,
-        h2: (props) => <h2 className="border-l-[6px] border-sky-500 pl-2 text-2xl text-balance mt-6 font-semibold" {...props} />,
-        h3: (props) => <h3 className="border-l-4 border-emerald-300/80 pl-2 text-xl text-balance mt-6 font-semibold" {...props} />,
-        h4: (props) => <h4 className="text-lg text-balance mt-6 font-semibold" {...props} />,
+        h2: (props) => <h2 className="border-l-[6px] border-sky-500 pl-2 text-2xl mt-6 font-semibold" {...props} />,
+        h3: (props) => <h3 className="border-l-4 border-emerald-300/80 pl-2 text-xl mt-6 font-semibold" {...props} />,
+        h4: (props) => <h4 className="text-lg mt-6 font-semibold" {...props} />,
         ul: (props) => <ul className="pl-10 space-y-3 list-disc pb-5 mt-6 font-medium" {...props} />,
         ol: (props) => <ol className="pl-10 space-y-3 list-decimal pb-5 mt-6 font-medium" {...props} />,
         blockquote: (props) => (
@@ -73,7 +73,6 @@ export default function MdxComponent({ children }: MdxComponentProps) {
             loading="lazy"
           />
         ),
-        // pre: ({inlin})=>
       }}
     >
       {children}
