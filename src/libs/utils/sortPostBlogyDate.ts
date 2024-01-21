@@ -1,7 +1,7 @@
 import type { MetadataBlog } from '@/types/mdx';
 import loadMdXFile from '../markdown';
 
-export const latestPostBlogs = () => {
+export const latestBlogPosts = () => {
   const getAllPostBlogs = loadMdXFile('blogs');
 
   return getAllPostBlogs.sort((post1, post2) => {
@@ -12,7 +12,7 @@ export const latestPostBlogs = () => {
   });
 };
 
-export const oldestPostBlog = () => {
+export const oldestBlogPosts = () => {
   const getAllPostBlogs = loadMdXFile('blogs');
 
   return getAllPostBlogs.sort((post1, post2) => {
