@@ -1,56 +1,25 @@
 'use client';
 
 import * as React from 'react';
-import useSWR from 'swr';
 import CardBlog from '@/components/Card/CardBlog';
 import CardContainer from '@/views/common/CardContainer';
-import getDataBlogPostSortBy from '@/service/blog-post-fetcher';
 import CardListBlog from '@/components/Card/CardListBlog';
-import SkeletonCardBlog from '@/components/Skeleton/SkeletonCardBlog';
-import SkeletonCardListBlog from '@/components/Skeleton/SkeletonCardListBlog';
-import ErrorResponse from '@/components/ErrorResponse';
-import { MetadataBlog } from '@/types/mdx';
+import { MdxFileProps, MetadataBlog } from '@/types/mdx';
 
 type PresentingBlogContentsProps = {
-  sortByDate: string
+  dataCurrentBlogPost: MdxFileProps[],
   currentLayout: 'grid' | 'list'
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_DOMAIN;
-
 export default function PresentingBlogContents(
-  { sortByDate, currentLayout }: PresentingBlogContentsProps,
+  { dataCurrentBlogPost, currentLayout }: PresentingBlogContentsProps,
 ) {
-  const { data, error, isLoading } = useSWR(
-    `${baseUrl}/api/blogpost?sort=${sortByDate}`,
-    getDataBlogPostSortBy,
-    {
-      errorRetryInterval: 20 * 1000,
-      errorRetryCount: 1,
-    },
-  );
-
   return (
     <section>
-      {isLoading && currentLayout === 'grid' ? (
-        <CardContainer>
-          {Array.from(new Array(6).keys()).map((key) => (
-            <SkeletonCardBlog key={key} />
-          ))}
-        </CardContainer>
-      ) : null}
-
-      {isLoading && currentLayout === 'list' ? (
-        <div className="grid grid-cols-1 gap-8 mt-8">
-          {Array.from(new Array(6).keys()).map((key) => (
-            <SkeletonCardListBlog key={key} />
-          ))}
-        </div>
-      ) : null}
 
       {currentLayout === 'grid' && (
         <CardContainer>
-          {data?.data?.map((post) => (
+          {dataCurrentBlogPost.map((post) => (
             <CardBlog data={post?.frontMatter as MetadataBlog} slug={post?.slug} key={post?.id} />
           ))}
         </CardContainer>
@@ -58,7 +27,7 @@ export default function PresentingBlogContents(
 
       {currentLayout === 'list' && (
         <div className="grid grid-cols-1 gap-8 mt-8">
-          {data?.data?.map((post) => (
+          {dataCurrentBlogPost.map((post) => (
             <CardListBlog
               data={post?.frontMatter as MetadataBlog}
               slug={post?.slug}
@@ -68,7 +37,6 @@ export default function PresentingBlogContents(
         </div>
       )}
 
-      {error && (<ErrorResponse error={error} />)}
     </section>
   );
 }

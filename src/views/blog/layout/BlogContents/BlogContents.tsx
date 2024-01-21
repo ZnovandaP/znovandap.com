@@ -2,10 +2,18 @@
 
 import * as React from 'react';
 import useIsMobile from '@/libs/hooks/useIsMobile';
+import { MdxFileProps } from '@/types/mdx';
 import ControlBlogPost from '../../../common/ControlBlogPost';
 import PresentingBlogContents from './PresentingBlogContents';
 
-export default function BlogContents() {
+type BlogContentsProps = {
+  dataBlogPost: {
+    oldest: MdxFileProps[],
+    latest: MdxFileProps[],
+  }
+};
+
+export default function BlogContents({ dataBlogPost }: BlogContentsProps) {
   const [currentLayout, setCurrentLayout] = React.useState<'list' | 'grid'>(
     'grid',
   );
@@ -25,7 +33,7 @@ export default function BlogContents() {
         setCurrentLayout={setCurrentLayout}
       />
       <PresentingBlogContents
-        sortByDate={selectPost}
+        dataCurrentBlogPost={dataBlogPost[selectPost as 'latest' | 'oldest']}
         currentLayout={currentLayout}
       />
     </section>
