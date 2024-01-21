@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Metadata } from 'next';
 import ProjectsView from '@/views/projects';
 import METADATA from '@/constant/metadata';
-import { latestPostProjects, oldestPostProjects } from '@/libs/utils/sortingPostProjectByDate';
 
 export const metadata: Metadata = {
   title: `Projects ${METADATA.exTitle}`,
@@ -13,13 +12,8 @@ export const metadata: Metadata = {
   },
 };
 
-const dataSort = {
-  oldest: oldestPostProjects(),
-  latest: latestPostProjects(),
-};
-
 export default function ProjectsPage() {
   return (
-    <ProjectsView dataSort={dataSort} />
+    <ProjectsView />
   );
 }

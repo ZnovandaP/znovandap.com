@@ -5,18 +5,18 @@ import CardContainer from '@/views/common/CardContainer';
 import CardListProject from '@/components/Card/CardListProject';
 
 type PresentingProjectContensProps = {
-  data: MdxFileProps[]
+  dataCurrentBlogPost: MdxFileProps[]
   currentLayout: 'grid' | 'list'
 };
 
 export default function PresentingProjectContents(
-  { currentLayout, data }: PresentingProjectContensProps,
+  { currentLayout, dataCurrentBlogPost }: PresentingProjectContensProps,
 ) {
   return (
     <section>
       {currentLayout === 'grid' && (
         <CardContainer>
-          {data.map((dataProject) => {
+          {dataCurrentBlogPost.map((dataProject) => {
             const project = dataProject.frontMatter as MetadataProject;
 
             return (
@@ -28,7 +28,7 @@ export default function PresentingProjectContents(
 
       {currentLayout === 'list' && (
         <div className="grid grid-cols-1 gap-8 mt-8">
-          {data.map((post) => (
+          {dataCurrentBlogPost.map((post) => (
             <CardListProject
               data={post?.frontMatter as MetadataProject}
               slug={post?.slug}

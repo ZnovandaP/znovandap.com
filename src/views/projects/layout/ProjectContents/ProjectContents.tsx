@@ -7,20 +7,18 @@ import ControlBlogPost from '../../../common/ControlBlogPost';
 import PresentingProjectContents from './PresentingProjectContents';
 
 type ProjectContentsProps = {
-  dataSort: {
+  dataProjectPost: {
     oldest: MdxFileProps[] | []
     latest: MdxFileProps[] | []
   }
 };
 
-export default function ProjectContents({ dataSort }: ProjectContentsProps) {
+export default function ProjectContents({ dataProjectPost }: ProjectContentsProps) {
   const [currentLayout, setCurrentLayout] = React.useState<'list' | 'grid'>(
     'grid',
   );
   const [selectPost, setSelectPost] = React.useState('latest');
   const { isMobileViewport } = useIsMobile();
-
-  const currentData = selectPost === 'latest' ? dataSort.latest : dataSort.oldest;
 
   React.useEffect(() => {
     if (isMobileViewport) setCurrentLayout('grid');
@@ -35,7 +33,7 @@ export default function ProjectContents({ dataSort }: ProjectContentsProps) {
         setCurrentLayout={setCurrentLayout}
       />
       <PresentingProjectContents
-        data={currentData}
+        dataCurrentBlogPost={dataProjectPost[selectPost as 'latest' | 'oldest']}
         currentLayout={currentLayout}
       />
     </section>

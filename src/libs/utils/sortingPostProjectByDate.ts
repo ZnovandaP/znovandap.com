@@ -1,7 +1,7 @@
 import type { MetadataProject } from '@/types/mdx';
 import loadMdXFile from '../markdown';
 
-export const latestPostProjects = () => {
+export const latestProjectPosts = () => {
   const getAllPostBlogs = loadMdXFile('projects');
 
   return getAllPostBlogs.sort((post1, post2) => {
@@ -12,7 +12,7 @@ export const latestPostProjects = () => {
   });
 };
 
-export const oldestPostProjects = () => {
+export const oldestProjectPosts = () => {
   const getAllPostBlogs = loadMdXFile('projects');
 
   return getAllPostBlogs.sort((post1, post2) => {
