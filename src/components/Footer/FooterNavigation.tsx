@@ -5,7 +5,7 @@ import dataNavbar from '@/constant/data-navbar';
 export default function FooterNavigation() {
   return (
     <nav className="flex flex-col gap-2">
-      <FooterNavigation.NavigationTitle title="Naviagtion" />
+      <FooterNavigation.NavigationTitle title="Navigation" />
       <FooterNavigation.NavigationList />
     </nav>
   );
