@@ -12,7 +12,7 @@ export default function DataNotFoundSection({ type = 'projects' }: DataNotFoundS
       <div className="center w-full h-[16rem] sm:h-[17.5rem] md:h-[18.5rem] lg:h-[20rem]">
         <Image
           src="/ilustration/not-found.svg"
-          alt="Ilustration project not found"
+          alt="Ilustration data not found"
           height={600}
           width={600}
           priority
@@ -22,11 +22,17 @@ export default function DataNotFoundSection({ type = 'projects' }: DataNotFoundS
 
       <div className="mt-6 px-8 text-center">
         <h2 className="text-red-600 font-semibold text-2xl animate-bounce">
-          Project Not found!
+          {type === 'projects' ? 'Project' : 'Post'}
+          {' '}
+          Not found!
         </h2>
 
         <p className="mt-2 font-medium">
-          The project you are referring to cannot be found,
+          The
+          {' '}
+          {type === 'projects' ? 'project' : 'post'}
+          {' '}
+          you are referring to cannot be found,
           please back to
 
           {' '}
