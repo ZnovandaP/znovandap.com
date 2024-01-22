@@ -13,22 +13,22 @@ export async function generateMetadata({ params }: DetailProjectsPageProps): Pro
   const project = await loadMdXFile('projects')
     .find((post) => post.slug === params.slug) as MdxFileProps;
 
-  const frontMatter = project.frontMatter as MetadataProject;
+  const frontMatter = project?.frontMatter as MetadataProject;
 
   return {
-    title: `${frontMatter.title} ${METADATA.exTitle}`,
-    description: frontMatter.subtitle,
+    title: `${frontMatter?.title || 'Project Not Found'} ${METADATA.exTitle}`,
+    description: frontMatter?.subtitle || 'Project subtitle not found',
     openGraph: {
-      images: frontMatter.thumbnail,
-      url: `${process.env.DOMAIN}/${project.slug}`,
+      images: frontMatter?.thumbnail || 'Image project not found',
+      url: `${process.env.DOMAIN}/${project?.slug || ''}`,
       siteName: METADATA.openGraph.siteName,
       locale: METADATA.openGraph.locale,
       type: 'article',
       authors: 'Zidane Novanda Putra',
     },
-    keywords: frontMatter.title,
+    keywords: frontMatter?.title || 'Project Not Found',
     alternates: {
-      canonical: `${process.env.DOMAIN}/projects/${project.slug}`,
+      canonical: `${process.env.DOMAIN}/projects/${project?.slug || ''}`,
     },
   };
 }
