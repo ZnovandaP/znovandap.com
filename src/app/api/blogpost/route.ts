@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import { latestPostBlogs, oldestPostBlog } from '@/libs/utils/sortPostBlogyDate';
+import { latestBlogPosts, oldestBlogPosts } from '@/libs/utils/sortPostBlogyDate';
 import loadMdXFile from '@/libs/markdown';
 
 export async function GET(request: NextRequest) {
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   if (apiKey === process.env.API_KEY) {
     if (searchParams.get('sort')) {
       if (searchParams.get('sort') === 'oldest') {
-        const dataNewestPost = oldestPostBlog();
+        const dataNewestPost = oldestBlogPosts();
         return NextResponse.json({
           success: true,
           data: dataNewestPost,
@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
       }
 
       if (searchParams.get('sort') === 'latest') {
-        const dataNewestPost = latestPostBlogs();
+        const dataNewestPost = latestBlogPosts();
         return NextResponse.json({
           success: true,
           data: dataNewestPost,
