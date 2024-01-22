@@ -13,22 +13,22 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const blog = await loadMdXFile()
     .find((post) => post.slug === params.slug) as MdxFileProps;
 
-  const frontMatter = blog.frontMatter as MetadataBlog;
+  const frontMatter = blog?.frontMatter as MetadataBlog;
 
   return {
-    title: `${frontMatter.title} ${METADATA.exTitle}`,
-    description: frontMatter.subtitle,
+    title: `${frontMatter?.title || 'Post Not Found'} ${METADATA.exTitle}`,
+    description: frontMatter?.subtitle || 'Description Not Found',
     openGraph: {
-      images: frontMatter.image,
-      url: `${process.env.DOMAIN}/${blog.slug}`,
+      images: frontMatter?.image || 'Image post not found',
+      url: `${process.env.DOMAIN}/${blog?.slug || ''}`,
       siteName: METADATA.openGraph.siteName,
       locale: METADATA.openGraph.locale,
       type: 'article',
       authors: 'Zidane Novanda Putra',
     },
-    keywords: frontMatter.title,
+    keywords: frontMatter?.title || 'Post Not Found',
     alternates: {
-      canonical: `${process.env.DOMAIN}/blog/post/${blog.slug}`,
+      canonical: `${process.env.DOMAIN}/blog/post/${blog?.slug || ''}`,
     },
   };
 }
