@@ -29,6 +29,9 @@ import {
   SiSwr,
   SiMdx,
   SiReacthookform,
+  SiCypress,
+  SiStorybook,
+  SiTestinglibrary,
 } from 'react-icons/si';
 
 type StacksProps = {
@@ -58,13 +61,17 @@ const Icons: StacksProps = {
   FramerMotion: <SiFramer />,
   Vite: <SiVite className="text-[#646CFF]" />,
   Webpack: <SiWebpack className="text-[#8DD6F9]" />,
-  PWA: <SiPwa className="text-[#5A0FC8]" />,
+  PWA: <SiPwa className="text-[#8b5cf6]" />,
   Jest: <SiJest className="text-[#C21325]" />,
   Jasmine: <SiJasmine className="text-[#8A4182]" />,
+  Cypress: <SiCypress className="text-[##69D3A7]" />,
+  ReactTestingLibrary: <SiTestinglibrary className="text-[#E33332]" />,
+  Storybook: <SiStorybook className="text-[#FF4785]" />,
   CodeceptJs: <SiCodeceptjs className="text-[#F6E05E]" />,
   Redux: <SiRedux className="text-[#764ABC]" />,
-  ReactHookForm: <SiReacthookform className="text-[#EC5990]" />,
+  ReactHookForm: <SiReacthookform className="text-[#ec4899]" />,
   Zustand: '🐻',
+  NextAuth: '🛡️',
 };
 
 export default Icons;
