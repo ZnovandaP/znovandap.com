@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import * as React from 'react';
 import Link from 'next/link';
@@ -13,12 +15,13 @@ type CardListProjectProps = {
   slug: string
 };
 export default function CardListProject({ data, slug }: CardListProjectProps) {
-  const datePostFormat = moment(data.date).format('ll');
-  const postTimeAgo = moment(data.date).fromNow();
+  const dateIsoFormat = new Date(data.date).toISOString();
+  const datePostFormat = moment(dateIsoFormat).format('ll');
+  const postTimeAgo = moment(dateIsoFormat).fromNow();
   return (
     <section className="relative" data-aos="fade-up">
       <Link href={`projects/${slug}`}>
-        <Card className="flex items-center">
+        <Card className="group flex items-center">
           <Card.CardListMedia
             src={data.thumbnail}
             alt={`Image head ${data.title}`}
@@ -28,11 +31,11 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
             <div className="flex flex-col gap-2">
               <h2
                 style={{ color: data.theme }}
-                className="text-xl font-semibold hover:underline hover:underline-offset-[6px]"
+                className="text-xl font-semibold group-hover:underline group-hover:underline-offset-[6px] group-hover:decoration-4 line-clamp-1"
               >
                 {data.title}
               </h2>
-              <p className="opacity-70">
+              <p className="opacity-80">
                 {`${datePostFormat} - ${postTimeAgo}`}
               </p>
               <p className="font-medium hyphens-auto line-clamp-3">

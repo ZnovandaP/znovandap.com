@@ -10,7 +10,7 @@ export default function Card({ children, className = '' }: CardProps) {
   return (
     <div
       className={cn(
-        'bg-stone-200 dark:bg-stone-800 shadow-lg shadow-stone-500/60 ring-2 ring-stone-500/60 rounded-lg overflow-hidden hover:scale-[1.025] active:scale-100 transition-all duration-300',
+        'bg-stone-50 dark:bg-stone-900 shadow-lg shadow-stone-400/60 dark:shadow-stone-700/70 ring-1 ring-stone-500/60 rounded-lg overflow-hidden hover:scale-[1.025] active:scale-100 transition-all duration-300',
 
         className,
       )}
