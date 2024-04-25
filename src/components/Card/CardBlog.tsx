@@ -12,12 +12,13 @@ type CardBlogProps = {
 };
 
 export default function CardBlog({ data, slug }: CardBlogProps) {
-  const datePostFormat = moment(data.date).format('ll');
-  const postTimeAgo = moment(data.date).fromNow();
+  const dateIsoFormat = new Date(data.date).toISOString();
+  const datePostFormat = moment(dateIsoFormat).format('ll');
+  const postTimeAgo = moment(dateIsoFormat).fromNow();
 
   return (
     <Link href={`blog/post/${slug}`} data-aos="fade-up">
-      <Card>
+      <Card className="group">
         <Card.CardMedia
           src={data.image}
           alt={`Image head ${data.title}`}
@@ -26,7 +27,7 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
         <Card.CardContent>
           <div className="flex flex-col gap-2">
             <h2
-              className="text-xl font-semibold hover:underline hover:text-sky-600 line-clamp-1"
+              className="text-xl font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
             >
               {data.title}
             </h2>
@@ -36,11 +37,11 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:justify-between gap-y-1 mt-2 text-sm font-medium ">
-            <p className="flex order-2 sm:order-first opacity-70">
+          <div className="flex flex-col gap-y-1 mt-2 text-sm font-medium ">
+            <p className="flex order-2  opacity-80">
               {`${datePostFormat} - ${postTimeAgo}`}
             </p>
-            <p className="flex order-1 sm:order-2 sm:center gap-1 opacity-80 text-sky-500">
+            <p className="flex order-1 gap-1 opacity-80 text-sky-600 dark:text-sky-300 font-medium">
               <IoMdTime className="text-base" />
               {`${data.readingDuration} min to read`}
             </p>
