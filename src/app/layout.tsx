@@ -46,8 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         suppressHydrationWarning
         className={cn(
           inter.variable,
-          'text-stone-600 bg-stone-50 font-inter',
-          'dark:bg-stone-950 dark:text-stone-200',
+          'text-stone-500 bg-white font-inter',
+          'dark:bg-black dark:text-stone-100',
         )}
       >
         <TopLoader />
