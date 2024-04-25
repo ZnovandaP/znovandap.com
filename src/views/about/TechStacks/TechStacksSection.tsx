@@ -24,7 +24,7 @@ export default function TechStacksSection() {
             direction={key % 2 === 1 ? 'left' : 'right'}
           >
             {techStacks.map((stack) => (
-              <StackBadge icon={stack} text={stack} />
+              <StackBadge icon={stack} text={stack} key={stack} />
             ))}
           </MarqueeElement>
         ))}

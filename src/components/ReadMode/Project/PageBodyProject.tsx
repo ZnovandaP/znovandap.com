@@ -25,7 +25,7 @@ export default function PageBodyProject({ data, mdxContent }: PageBodyProjectPro
         </h2>
         <MarqueeElement>
           {[...data.stacks, ...data.stacks].map((stack) => (
-            <StackBadge icon={stack} text={stack} />
+            <StackBadge icon={stack} text={stack} key={stack} />
           ))}
         </MarqueeElement>
       </div>
