@@ -37,14 +37,14 @@ function CardMedia({ src, alt }: { src: string, alt: string }) {
 
 function CardListMedia({ src, alt }: { src: string, alt: string }) {
   return (
-    <div className="center py-6 pl-6">
+    <div className="py-6 pl-6 w-[30%]">
       <Image
         src={src}
         alt={alt}
         width={600}
         height={600}
         loading="lazy"
-        className="w-[260px] h-[150px] rounded-md"
+        className="w-[260px] h-[150px] rounded-md ring-1 ring-stone-400 dark:ring-stone-600"
       />
     </div>
   );

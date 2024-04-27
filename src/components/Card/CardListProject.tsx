@@ -27,7 +27,7 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
             alt={`Image head ${data.title}`}
           />
 
-          <Card.CardContent>
+          <Card.CardContent className="w-[70%] pl-0">
             <div className="flex flex-col gap-2">
               <h2
                 style={{ color: data.theme }}

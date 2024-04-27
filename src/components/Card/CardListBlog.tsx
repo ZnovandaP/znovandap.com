@@ -22,7 +22,7 @@ export default function CardListBlog({ data, slug }: CardListBlogProps) {
           alt={`Image head ${data.title}`}
         />
 
-        <Card.CardContent>
+        <Card.CardContent className="w-[70%] pl-0">
           <div className="flex flex-col gap-2">
             <h2
               className="text-xl font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
