@@ -9,6 +9,16 @@ type BlogPostPageProps = {
   params: { slug: string }
 };
 
+export async function generateStaticParams() {
+  const projects = loadMdXFile('blogs');
+
+  const params = projects.map((project) => ({
+    slug: project.slug,
+  }));
+
+  return params;
+}
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const blog = await loadMdXFile()
     .find((post) => post.slug === params.slug) as MdxFileProps;
