@@ -32,7 +32,7 @@ export default function DarkModeMenu({ isOpen }: DarkModeMenuProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.ul
-          className="flex flex-col items-center gap-1"
+          className="flex flex-col items-center gap-1 dark:bg-neutral-900 bg-neutral-100 rounded-md"
           variants={animate}
           initial="hidden"
           animate="visible"
@@ -45,7 +45,7 @@ export default function DarkModeMenu({ isOpen }: DarkModeMenuProps) {
           }}
         >
           {dataDarkModeMenu.map((data) => (
-            <li key={data.theme}>
+            <li className="w-full" key={data.theme}>
               <ButtonChangeTheme
                 label={data.label}
                 icon={(<data.icon />)}

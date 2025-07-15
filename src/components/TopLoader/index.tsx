@@ -4,6 +4,7 @@ import NextTopLoader from 'nextjs-toploader';
 export default function TopLoader() {
   return (
     <NextTopLoader
+      zIndex={999999}
       color="#0ea5e9"
       easing="ease-in-out"
       initialPosition={0.08}

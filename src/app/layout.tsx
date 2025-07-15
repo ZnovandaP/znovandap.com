@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000' : process.env.DOMAIN || ''),
-  title: `Zidane Novanda Putra ${METADATA.exTitle}`,
+  title: `Home ${METADATA.exTitle}`,
   description: METADATA.description,
   keywords: METADATA.keyword,
   creator: METADATA.creator,
@@ -46,13 +46,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         suppressHydrationWarning
         className={cn(
           inter.variable,
-          'text-stone-500 bg-white font-inter',
-          'dark:bg-black dark:text-stone-100',
+          'text-neutral-500 bg-white font-inter',
+          'dark:bg-black dark:text-neutral-100',
         )}
       >
         <TopLoader />
         <NextThemeProvider>
-          <header>
+          <header className="block">
             <NavbarDesktop />
             <NavbarMobile />
           </header>

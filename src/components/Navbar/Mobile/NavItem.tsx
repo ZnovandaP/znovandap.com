@@ -8,28 +8,22 @@ import cn from '@/libs/utils/cn';
 
 type NavItemProps = {
   data: typeof dataNavbar[0]
-  column?: boolean
-  row?: boolean
 };
 
-export default function NavItem({ data, column, row }: NavItemProps) {
+export default function NavItem({ data }: NavItemProps) {
   const pathname = usePathname();
   const arrOfRoute = pathname.split('/');
   const baseRoute = `/${arrOfRoute[1]}`;
+  const isSelected = baseRoute === data.pathname;
   return (
-    <li>
+    <div>
       <Link
         href={data.pathname}
         className={
               cn(
-                'transition-all duration-300 hover:scale-110 active:scale-95',
+                'transition-all duration-300 px-4 py-2 flex gap-3 dark:hover:bg-neutral-800 hover:bg-neutral-100 rounded-lg',
 
-                column && 'flex flex-col justify-center items-center py-2 px-4 rounded-lg',
-
-                row && 'flex gap-2 items-center py-2 px-4 rounded-full',
-
-                baseRoute === data.pathname
-                && 'font-bold bg-stone-200/5 backdrop-blur-md shadow-md shadow-stone-500/60 dark:shadow-stone-800',
+                isSelected && 'dark:bg-neutral-700 bg-neutral-200 ring-1 dark:ring-neutral-600 ring-neutral-300',
               )
             }
       >
@@ -38,6 +32,6 @@ export default function NavItem({ data, column, row }: NavItemProps) {
         </span>
         {data.title}
       </Link>
-    </li>
+    </div>
   );
 }

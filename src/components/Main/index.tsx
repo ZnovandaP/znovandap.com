@@ -17,7 +17,7 @@ export default function Main({ children }: MainProps) {
   };
 
   return (
-    <main onClick={handleClickMain}>
+    <main className="pt-16 lg:pt-0" onClick={handleClickMain}>
       {children}
     </main>
   );
