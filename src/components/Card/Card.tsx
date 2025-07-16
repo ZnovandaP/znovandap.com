@@ -22,14 +22,14 @@ export default function Card({ children, className = '' }: CardProps) {
 
 function CardMedia({ src, alt }: { src: string, alt: string }) {
   return (
-    <div className="w-full h-[200px]">
+    <div className="w-full h-[175px] lg:h-[150px]">
       <Image
         src={src}
         alt={alt}
         width={600}
         height={600}
         loading="lazy"
-        className="w-full h-full rounded-tl-lg rounded-tr-lg object-cover object-top"
+        className="w-full h-full rounded-tl-lg rounded-tr-lg object-cover lg:object-fill object-top"
       />
     </div>
   );

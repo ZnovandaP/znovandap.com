@@ -12,8 +12,7 @@ type CardListBlogProps = {
 };
 export default function CardListBlog({ data, slug }: CardListBlogProps) {
   const dateIsoFormat = new Date(data.date).toISOString();
-  const datePostFormat = moment(dateIsoFormat).format('ll');
-  const postTimeAgo = moment(dateIsoFormat).fromNow();
+  const datePostFormat = moment(dateIsoFormat).format('LL');
   return (
     <Link href={`blog/post/${slug}`} data-aos="fade-up">
       <Card className="group flex items-center">
@@ -22,17 +21,17 @@ export default function CardListBlog({ data, slug }: CardListBlogProps) {
           alt={`Image head ${data.title}`}
         />
 
-        <Card.CardContent className="w-[70%] pl-0">
+        <Card.CardContent className="w-[70%] pl-6">
           <div className="flex flex-col gap-2">
             <h2
-              className="text-xl font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
+              className="text-lg font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
             >
               {data.title}
             </h2>
 
             <div className="flex items-center gap-8 text-sm font-medium ">
-              <p className="opacity-80">
-                {`${datePostFormat} - ${postTimeAgo}`}
+              <p className="font-medium">
+                {`${datePostFormat}`}
               </p>
               <p className="center gap-1 opacity-80 text-sky-600 dark:text-sky-300 font-medium">
                 <IoMdTime className="text-base" />
@@ -40,7 +39,7 @@ export default function CardListBlog({ data, slug }: CardListBlogProps) {
               </p>
             </div>
 
-            <p className="font-medium hyphens-auto">
+            <p className="text-sm text-neutral-400 hyphens-auto line-clamp-3 lg:line-clamp-2 xl:line-clamp-3">
               {data.subtitle}
             </p>
           </div>

@@ -17,7 +17,6 @@ type CardListProjectProps = {
 export default function CardListProject({ data, slug }: CardListProjectProps) {
   const dateIsoFormat = new Date(data.date).toISOString();
   const datePostFormat = moment(dateIsoFormat).format('ll');
-  const postTimeAgo = moment(dateIsoFormat).fromNow();
   return (
     <section className="relative" data-aos="fade-up">
       <Link href={`projects/${slug}`}>
@@ -27,18 +26,18 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
             alt={`Image head ${data.title}`}
           />
 
-          <Card.CardContent className="w-[70%] pl-0">
+          <Card.CardContent className="w-[70%] pl-6">
             <div className="flex flex-col gap-2">
               <h2
                 style={{ color: data.theme }}
-                className="text-xl font-semibold group-hover:underline group-hover:underline-offset-[6px] group-hover:decoration-4 line-clamp-1"
+                className="text-lg font-semibold group-hover:underline group-hover:underline-offset-[6px] group-hover:decoration-4 line-clamp-1"
               >
                 {data.title}
               </h2>
-              <p className="opacity-80">
-                {`${datePostFormat} - ${postTimeAgo}`}
+              <p className="font-medium text-sm">
+                {`${datePostFormat}`}
               </p>
-              <p className="font-medium hyphens-auto line-clamp-3">
+              <p className="text-sm text-neutral-400 hyphens-auto line-clamp-3">
                 {data.subtitle}
               </p>
             </div>
@@ -46,7 +45,9 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
             <div className="mt-4 flex items-center gap-4">
               {data.stacks?.slice(0, 5)?.map((stack) => (
                 <Tooltip title={stack} key={stack}>
-                  {Icons[stack]}
+                  <span className="text-[21px]">
+                    {Icons[stack]}
+                  </span>
                 </Tooltip>
               ))}
             </div>
@@ -63,12 +64,12 @@ function LinkForSourceProject({ data: { data } }: { data: Pick<CardListProjectPr
   return (
     <div className="absolute bottom-4 right-10 flex items-center gap-4">
       <Tooltip title="Repository">
-        <Link href={data.repository} target="_blank" className="text-[2rem]">
+        <Link href={data.repository} target="_blank" className="text-[27px]">
           {Icons.Github}
         </Link>
       </Tooltip>
       <Tooltip title="Live">
-        <Link href={data.livePreview} target="_blank" className="text-[2rem]">
+        <Link href={data.livePreview} target="_blank" className="text-[27px]">
           <LuEye />
         </Link>
       </Tooltip>

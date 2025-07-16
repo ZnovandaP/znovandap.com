@@ -13,8 +13,7 @@ type CardBlogProps = {
 
 export default function CardBlog({ data, slug }: CardBlogProps) {
   const dateIsoFormat = new Date(data.date).toISOString();
-  const datePostFormat = moment(dateIsoFormat).format('ll');
-  const postTimeAgo = moment(dateIsoFormat).fromNow();
+  const datePostFormat = moment(dateIsoFormat).format('LL');
 
   return (
     <Link href={`blog/post/${slug}`} data-aos="fade-up">
@@ -24,30 +23,30 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
           alt={`Image head ${data.title}`}
         />
 
-        <Card.CardContent>
+        <Card.CardContent className="min-h-[212px] flex flex-col">
           <div className="flex flex-col gap-2">
             <h2
-              className="text-xl font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
+              className="text-lg font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
             >
               {data.title}
             </h2>
 
-            <p className="font-medium hyphens-auto line-clamp-3">
+            <div className="flex justify-between items-center text-sm font-medium">
+              <p className="flex font-medium text-nowrap">
+                {`${datePostFormat}`}
+              </p>
+              <p className="flex gap-1 opacity-80 text-sky-600 dark:text-sky-300 font-medium text-nowrap">
+                <IoMdTime className="text-base" />
+                {`${data.readingDuration} min`}
+              </p>
+            </div>
+
+            <p className="text-sm text-neutral-400 hyphens-auto line-clamp-3 lg:line-clamp-2 xl:line-clamp-3">
               {data.subtitle}
             </p>
           </div>
 
-          <div className="flex flex-col gap-y-1 mt-2 text-sm font-medium ">
-            <p className="flex order-2  opacity-80">
-              {`${datePostFormat} - ${postTimeAgo}`}
-            </p>
-            <p className="flex order-1 gap-1 opacity-80 text-sky-600 dark:text-sky-300 font-medium">
-              <IoMdTime className="text-base" />
-              {`${data.readingDuration} min to read`}
-            </p>
-          </div>
-
-          <div className="mt-4 flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-auto">
             {data.tags?.map((stack) => (
               <BadgeTags stack={stack} key={stack} />
             ))}
