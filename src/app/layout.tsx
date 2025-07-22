@@ -11,6 +11,7 @@ import AosInit from '@/components/Aos';
 import cn from '@/libs/utils/cn';
 import './globals.css';
 import Main from '@/components/Main';
+import Image from 'next/image';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -56,6 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <NavbarDesktop />
             <NavbarMobile />
           </header>
+
+          <div className="w-full h-[52dvh] absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-lg animate-pulse bg-repeat-x ">
+            <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat bg-contain bg-left" />
+          </div>
 
           <Main>
             {children}

@@ -24,9 +24,9 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
         />
 
         <Card.CardContent className="min-h-[212px] flex flex-col">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 mb-2">
             <h2
-              className="text-lg font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
+              className="font-semibold group-hover:underline group-hover:text-sky-600 line-clamp-1 hover:line-clamp-3"
             >
               {data.title}
             </h2>

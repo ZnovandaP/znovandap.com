@@ -10,7 +10,7 @@ type LayoutEntertaimentPageProps = {
 export default function LayoutEntertaimentPage({ children }: LayoutEntertaimentPageProps) {
   return (
     <SlideBottom>
-      <Container className="sm:mt-[8rem]">
+      <Container className="sm:mt-[6rem]">
         <PrologueEntertaiment />
         {children}
       </Container>
