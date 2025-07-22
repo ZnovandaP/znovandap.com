@@ -11,7 +11,7 @@ const ProjectPostsortByDate = {
 
 export default function ProjectsView() {
   return (
-    <Container className="sm:mt-[8rem]" data-aos="fade-up" data-aos-duration="700">
+    <Container className="sm:mt-[6rem]" data-aos="fade-up" data-aos-duration="700">
       <PrologueProjects />
       <ProjectContents dataProjectPost={ProjectPostsortByDate} />
     </Container>

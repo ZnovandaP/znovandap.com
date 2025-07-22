@@ -8,7 +8,7 @@ import FormContactSection from './FormContact';
 export default function ContactView() {
   return (
     <SlideBottom>
-      <Container className="sm:mt-[8rem]">
+      <Container className="sm:mt-[6rem]">
         <PrologueContact />
         <FindMeOnSection />
         <FormContactSection />

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export default function BadgeLocation() {
   return (
-    <div className="relative w-[17rem] bg-stone-200/80 px-6 py-3 rounded-full dark:bg-stone-900/80">
+    <div className="relative w-[17rem] bg-neutral-100 px-6 py-3 rounded-full dark:bg-neutral-800">
       <h2 className="flex justify-between gap-4 mb-4">
         <span className="flex flex-col">
           <span className="font-semibold">
@@ -15,7 +15,7 @@ export default function BadgeLocation() {
           </span>
         </span>
 
-        <span className="text-xl rounded-full ring-1 ring-stone-500 dark:ring-stone-600 p-2">
+        <span className="text-xl rounded-full ring-1 ring-neutral-300 dark:ring-neutral-600 p-2">
           🇮🇩
         </span>
       </h2>

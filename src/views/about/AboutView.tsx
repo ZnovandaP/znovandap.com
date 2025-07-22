@@ -6,7 +6,7 @@ import StoryAboutMeSection from './StoryAboutMe';
 
 export default function AboutView() {
   return (
-    <Container className="sm:mt-[8rem]" data-aos="fade-up" data-aos-duration="700">
+    <Container className="sm:mt-[6rem]" data-aos="fade-up" data-aos-duration="700">
       <PrologueAbout />
       <StoryAboutMeSection />
       <TechStacksSection />

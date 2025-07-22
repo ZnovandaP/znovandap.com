@@ -17,7 +17,7 @@ const myFullname = [
   },
   {
     text: 'putra',
-    delay: 0.75,
+    delay: 1,
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Author() {
         className={cn(
           'center flex-col gap-2 text-[4rem] leading-none text-center text-balance font-inter font-extrabold uppercase',
 
-          'sm:gap-0 sm:text-[6.5rem] md:text-[7.5rem] lg:text-[8rem]',
+          'sm:gap-0 sm:text-[6.5rem] md:text-[7.5rem] lg:text-[9rem]',
         )}
       >
         {myFullname.map((item) => (
@@ -65,6 +65,7 @@ export default function Author() {
         animate={{ opacity: 1 }}
         transition={{
           duration: 0.5,
+          delay: 1.5,
         }}
         className="group center overflow-hidden bg-stone-100/5 backdrop-blur-sm rounded-full shadow-lg shadow-stone-600/80 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 hover:backdrop-blur-none hover:scale-105 transition-all duration-300"
       >

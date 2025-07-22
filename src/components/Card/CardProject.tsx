@@ -26,7 +26,7 @@ export default function CardProject({ data, slug }: CardProjectProps) {
           <div className="flex flex-col gap-2">
             <h2
               style={{ color: data.theme }}
-              className="text-lg font-semibold group-hover:underline group-hover:underline-offset-[6px] group-hover:decoration-4 line-clamp-1"
+              className="font-semibold group-hover:underline group-hover:underline-offset-[6px] group-hover:decoration-4 line-clamp-1"
             >
               {data.title}
             </h2>

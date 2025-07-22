@@ -29,7 +29,7 @@ function NavLink({ data }: { data: typeof dataNavbar[0] }) {
 
 function NavigationList() {
   return (
-    <ul className="center gap-x-6 gap-y-3 flex-wrap">
+    <ul className="center gap-x-3 gap-y-3 flex-wrap">
       {dataNavbar.map((data) => (
         <li key={data.pathname}>
           <NavLink data={data} />
