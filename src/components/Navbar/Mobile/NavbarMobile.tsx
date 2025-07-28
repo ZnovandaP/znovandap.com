@@ -2,65 +2,90 @@
 
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
-import ButtonMore from '@/components/Button/ButtonMore';
 import ButtonDarkModeMenu from '@/components/Button/ButtonDarkModeMenu';
-import Container from '@/components/Container';
 import dataNavbar from '@/constant/data-navbar';
 import cn from '@/libs/utils/cn';
 import useOpenNavStore from '@/libs/zustand/nav-menu-store';
-import NavItem from '../NavItem';
-import AdditionalMenu from '../AdditionalMenu';
+import { ProfilePicture } from '@/components/Footer/ProfileCard';
+import { VscVerifiedFilled } from 'react-icons/vsc';
+import Line from '@/components/Decoration/Line';
+import ButtonHumbuger from '@/components/Button/ButtonHumburgerMenu';
+import { useWindowSize } from 'usehooks-ts';
+import NavItem from './NavItem';
 import DarkModeMenu from '../DarkModeMenu';
-import Navbar from '../Navbar';
-
-const lastIndexForShowingItem = 4;
+import NavbarContainer from './NavbarContainer';
 
 export default function NavbarMobile() {
-  const isOpen = useOpenNavStore((state) => state.isOpen);
-  const toggleOpenMenuNav = useOpenNavStore((state) => state.setToggle);
-
-  const [openDarkModeMenu, setOpenDarkModeMenu] = React.useState(false);
-
+  const [openDarkModeMenu, setOpenDarkModeMenu] = React.useState(true);
+  const { isOpen, setToggle, setClose } = useOpenNavStore();
   const pathname = usePathname();
+  const windowSize = useWindowSize();
+  const isNotLargeScreen = windowSize?.width! <= 1024;
 
+  React.useEffect(() => {
+    setClose();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
+  React.useEffect(() => {
+    if (isOpen && isNotLargeScreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, windowSize]);
   return (
-    <Container className="z-[999] fixed bottom-8 left-1/2 -translate-x-1/2 flex justify-center sm:hidden">
-      <Navbar>
-        <ul className="flex gap-0 items-center justify-between w-full font-medium">
-          {dataNavbar.slice(0, lastIndexForShowingItem).map((item) => (
-            <NavItem data={item} key={item.title} column />
+    <NavbarContainer isOpen={isOpen}>
+      <div className={cn(
+        'flex items-center justify-between min-h-[70px] w-full',
+      )}
+      >
+        <div className="flex items-center gap-2">
+          <ProfilePicture className="w-11 h-11 p-0" />
+          <div className="flex flex-col">
+            <p className="flex items-center gap-1 text-nowrap">
+              Zidane Novanda Putra
+              <VscVerifiedFilled className="w-5 h-5 text-sky-400" />
+            </p>
+
+            <p className={cn(
+              'text-sm text-nowrap transition-all duration-300 dark:text-neutral-400',
+              isOpen ? 'translate-y-0' : 'translate-y-6',
+            )}
+            >
+              { isOpen && '@znonvadadev'}
+            </p>
+          </div>
+        </div>
+
+        <ButtonHumbuger openMenu={isOpen} handleToogle={() => setToggle()} />
+      </div>
+
+      {/* Menu Apps */}
+      <div className="flex flex-col w-full gap-3 font-medium">
+        <ButtonDarkModeMenu
+          isOpen={openDarkModeMenu}
+          handleClick={() => setOpenDarkModeMenu(!openDarkModeMenu)}
+          isHover={isOpen}
+          className={cn(
+            !isOpen && 'justify-center bg-neutral-100 dark:bg-neutral-800 p-2 ring-1 dark:ring-neutral-700 ring-neutral-300 rounded-md',
+          )}
+        />
+        <DarkModeMenu isOpen={openDarkModeMenu && isOpen} />
+
+        <Line size="sm" className="my-3" />
+        <div className="overflow-y-auto overflow-x-hidden space-y-3 min-h-[300px]">
+          {dataNavbar.map((item) => (
+            <NavItem data={item} key={item.title} />
           ))}
+        </div>
+      </div>
 
-          <li
-            className="bg-stone-100 dark:bg-stone-900 p-1 rounded-full absolute -top-5 right-1/2 translate-x-1/2"
-          >
-            <ButtonMore
-              handleClick={() => toggleOpenMenuNav()}
-              className={cn(
-                pathname.startsWith('/dashboard') || pathname.startsWith('/entertaiment')
-                || pathname.startsWith('/contact')
-                  ? 'bg-stone-200/10 backdrop-blur-md  shadow-md shadow-stone-500/60 ring-2 ring-green-500'
-                  : '',
-              )}
-            />
-          </li>
-
-          <AdditionalMenu isOpenMenu={isOpen} isOpenDarkMenu={openDarkModeMenu} isMobile>
-            <ul className="flex flex-col items-center gap-4 relative">
-              {dataNavbar.slice(lastIndexForShowingItem, dataNavbar.length).map((item) => (
-                <NavItem data={item} key={item.title} row />
-              ))}
-              <li className="w-full">
-                <ButtonDarkModeMenu
-                  isOpen={openDarkModeMenu}
-                  handleClick={() => setOpenDarkModeMenu(!openDarkModeMenu)}
-                />
-                <DarkModeMenu isOpen={openDarkModeMenu} />
-              </li>
-            </ul>
-          </AdditionalMenu>
-        </ul>
-      </Navbar>
-    </Container>
+    </NavbarContainer>
   );
 }

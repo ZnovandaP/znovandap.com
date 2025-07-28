@@ -4,7 +4,7 @@ import * as React from 'react';
 import cn from '@/libs/utils/cn';
 import ButtonDarkModeMenu from '@/components/Button/ButtonDarkModeMenu';
 import dataNavbar from '@/constant/data-navbar';
-import { useHover, useWindowSize } from 'usehooks-ts';
+import { useWindowSize } from 'usehooks-ts';
 import Line from '@/components/Decoration/Line';
 import { VscVerifiedFilled } from 'react-icons/vsc';
 import { LuHeart } from 'react-icons/lu';
@@ -16,12 +16,23 @@ import NavbarContainer from './NavbarContainer';
 export default function NavbarDesktop() {
   const [openDarkModeMenu, setOpenDarkModeMenu] = React.useState(true);
   const ref = React.useRef(null);
-  const hovering = useHover(ref);
+  const [hovering, setHovering] = React.useState(false);
   const windowSize = useWindowSize();
   const isLargeScreen = windowSize?.width! >= 1024;
+  const [hasMounted, setHasMounted] = React.useState(false);
 
-  return isLargeScreen && (
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
+
+  if (!isLargeScreen) return null;
+
+  return (
     <NavbarContainer
+      handleMouseEnter={() => setHovering(true)}
+      handleMouseLeave={() => setHovering(false)}
       ref={ref}
       isHover={hovering}
     >

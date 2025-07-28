@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
 
           <div className="w-full h-[52dvh] absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-lg animate-pulse bg-repeat-x ">
-            <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat bg-contain bg-left dark:opacity-35 opacity-45" />
+            <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat-x bg:cover md:bg-contain bg-left dark:opacity-35 opacity-45" />
           </div>
 
           <Main>
