@@ -9,7 +9,7 @@ import { ErrorMessage } from '@hookform/error-message';
 
 type TextAreaContactProps<TFormValue extends FieldValues> = {
   register: UseFormRegister<TFormValue>
-  rule?: RegisterOptions
+  rule?: RegisterOptions<TFormValue>
   htmlFor: string
   name: Path<TFormValue>
   label: string

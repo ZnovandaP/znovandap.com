@@ -9,7 +9,7 @@ import { ErrorMessage } from '@hookform/error-message';
 
 type InputContactProps<TFormValue extends FieldValues> = {
   register: UseFormRegister<TFormValue>
-  rule?: RegisterOptions
+  rule?: RegisterOptions<TFormValue>
   type: string
   htmlFor: string
   name: Path<TFormValue>

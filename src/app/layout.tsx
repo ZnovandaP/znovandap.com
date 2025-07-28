@@ -11,7 +11,6 @@ import AosInit from '@/components/Aos';
 import cn from '@/libs/utils/cn';
 import './globals.css';
 import Main from '@/components/Main';
-import Image from 'next/image';
 
 const inter = Inter({
   subsets: ['latin'],
