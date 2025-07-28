@@ -18,7 +18,7 @@ export default function PrologueAbout() {
         <div className="flex mt-4 sm:mt-0 sm:absolute sm:-bottom-[3.5rem] sm:right-1/2 sm:translate-x-1/2">
           <ButtonLink
             text="My Resume"
-            href="/Zidane_Novanda_Putra_CV.pdf"
+            href="https://drive.google.com/drive/folders/1ri8xKTMyMJo4YDz7V7YvAQ9Ow9IDX3Qu?usp=drive_link"
             target="_blank"
             icon={<HiOutlineNewspaper />}
           />
