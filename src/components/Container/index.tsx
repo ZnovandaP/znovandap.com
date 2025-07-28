@@ -10,15 +10,13 @@ export default function Container({ children, className, ...other }: ContainerPr
   return (
     <section
       className={cn(
-        'mx-auto max-w-full',
+        'mx-auto max-w-full lg:pl-[59px]',
 
         'sm:max-w-[640px]',
 
         'md:max-w-[800px]',
 
-        'lg:max-w-[1024px]',
-
-        'xl:max-w-[1200px]',
+        'lg:max-w-[975px]',
 
         className,
       )}

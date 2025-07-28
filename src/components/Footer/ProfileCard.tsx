@@ -2,6 +2,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SiGmail, SiLinkedin } from 'react-icons/si';
+import cn from '@/libs/utils/cn';
 
 export default function ProfileCard() {
   return (
@@ -12,10 +13,17 @@ export default function ProfileCard() {
   );
 }
 
-function ProfilePicture() {
+type ProfilePictureProps = {
+  className?: string
+};
+export function ProfilePicture({ className = '' }: ProfilePictureProps) {
   return (
     <Link href="/about">
-      <div className="group w-28 h-28 rounded-full p-[6px] bg-stone-50">
+      <div className={cn(
+        'group w-28 h-28 rounded-full p-[6px] bg-stone-50',
+        className,
+      )}
+      >
         <Image
           src="/author_fill.webp"
           alt="Zidane Novanda Putra"

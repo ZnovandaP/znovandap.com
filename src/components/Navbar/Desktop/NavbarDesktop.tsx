@@ -1,64 +1,91 @@
 'use client';
 
 import * as React from 'react';
-import { usePathname } from 'next/navigation';
 import cn from '@/libs/utils/cn';
-import useOpenNavStore from '@/libs/zustand/nav-menu-store';
-import ButtonMore from '@/components/Button/ButtonMore';
 import ButtonDarkModeMenu from '@/components/Button/ButtonDarkModeMenu';
-import Container from '@/components/Container';
 import dataNavbar from '@/constant/data-navbar';
-import NavItem from '../NavItem';
-import AdditionalMenu from '../AdditionalMenu';
+import { useHover, useWindowSize } from 'usehooks-ts';
+import Line from '@/components/Decoration/Line';
+import { VscVerifiedFilled } from 'react-icons/vsc';
+import { LuHeart } from 'react-icons/lu';
+import { ProfilePicture } from '@/components/Footer/ProfileCard';
+import NavItem from './NavItem';
 import DarkModeMenu from '../DarkModeMenu';
-import Navbar from '../Navbar';
-
-const lastIndexForShowingItem = 5;
+import NavbarContainer from './NavbarContainer';
 
 export default function NavbarDesktop() {
-  const isOpen = useOpenNavStore((state) => state.isOpen);
-  const toggleOpenMenuNav = useOpenNavStore((state) => state.setToggle);
+  const [openDarkModeMenu, setOpenDarkModeMenu] = React.useState(true);
+  const ref = React.useRef(null);
+  const hovering = useHover(ref);
+  const windowSize = useWindowSize();
+  const isLargeScreen = windowSize?.width! >= 1024;
 
-  const [openDarkModeMenu, setOpenDarkModeMenu] = React.useState(false);
+  return isLargeScreen && (
+    <NavbarContainer
+      ref={ref}
+      isHover={hovering}
+    >
+      <div className="flex-col gap-1 mt-8 center">
+        <ProfilePicture className={cn(
+          'w-14 h-14 p-0',
 
-  const pathname = usePathname();
+          hovering && 'w-[5.5rem] h-[5.5rem] p-[2px] bg-green-600',
+        )}
+        />
+        <p className="flex items-center gap-1 mt-4 text-nowrap">
+          { hovering && 'Zidane Novanda Putra'}
+          <VscVerifiedFilled className="w-5 h-5 text-sky-400" />
+        </p>
 
-  return (
-    <Container className="z-[999] fixed top-10 left-1/2 -translate-x-1/2 hidden sm:w-full sm:flex justify-center">
-      <Navbar>
-        <ul className="flex gap-0 items-center justify-between w-full font-medium lg:ml-4">
-          {dataNavbar.slice(0, lastIndexForShowingItem).map((item) => (
-            <NavItem data={item} key={item.title} row />
+        <p className="text-sm text-nowrap dark:text-neutral-400">
+          { hovering && '@znonvadadev'}
+        </p>
+      </div>
+
+      {/* Menu Apps */}
+      <div className="flex flex-col w-full gap-3 font-medium">
+        <div className="overflow-y-auto overflow-x-hidden space-y-3 min-h-[300px]">
+          {dataNavbar.map((item) => (
+            <NavItem data={item} key={item.title} isHover={hovering} />
           ))}
+        </div>
 
-          <li>
-            <ButtonMore
-              handleClick={() => toggleOpenMenuNav()}
-              className={cn(
-                // active
-                pathname.startsWith('/dashboard') || pathname.startsWith('/entertaiment')
-                  ? 'bg-stone-200/10 backdrop-blur-md shadow-md shadow-stone-500/60 ring-2 ring-green-500'
-                  : '',
-              )}
-            />
-          </li>
+        <Line size="sm" className="my-6" />
 
-          <AdditionalMenu isOpenMenu={isOpen}>
-            <ul className="flex flex-col items-center gap-1">
-              {dataNavbar.slice(lastIndexForShowingItem, dataNavbar.length).map((item) => (
-                <NavItem data={item} key={item.title} row />
-              ))}
-              <li className="w-full">
-                <ButtonDarkModeMenu
-                  isOpen={openDarkModeMenu}
-                  handleClick={() => setOpenDarkModeMenu(!openDarkModeMenu)}
-                />
-                <DarkModeMenu isOpen={openDarkModeMenu} />
-              </li>
-            </ul>
-          </AdditionalMenu>
-        </ul>
-      </Navbar>
-    </Container>
+        <ButtonDarkModeMenu
+          isOpen={openDarkModeMenu}
+          handleClick={() => setOpenDarkModeMenu(!openDarkModeMenu)}
+          isHover={hovering}
+          className={cn(
+            !hovering && 'justify-center bg-neutral-100 dark:bg-neutral-800 p-2 ring-1 dark:ring-neutral-700 ring-neutral-300 rounded-md',
+          )}
+        />
+        <DarkModeMenu isOpen={openDarkModeMenu && hovering} />
+      </div>
+
+      <div className="mb-8">
+        <p className={cn(
+          'text-xs justify-center transition-all duration-300 ease-in-out',
+          hovering && 'items-center flex space-x-2',
+        )}
+        >
+          <span className={cn(
+            'transition-all duration-300 ease-in-out',
+            hovering ? 'scale-100 opacity-100' : 'scale-0 opacity-0',
+          )}
+          >
+            {hovering && 'Created with'}
+          </span>
+          <LuHeart className="w-6 h-6 bg-pink-500 px-[2px] rounded-md text-white animate-pulse" />
+          <span className={cn(
+            'transition-all duration-300 ease-in-out',
+            hovering ? 'scale-100 opacity-100' : 'scale-0 opacity-0',
+          )}
+          >
+            {hovering && 'by znovandadev'}
+          </span>
+        </p>
+      </div>
+    </NavbarContainer>
   );
 }

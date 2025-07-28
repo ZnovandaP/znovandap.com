@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000' : process.env.DOMAIN || ''),
-  title: `Zidane Novanda Putra ${METADATA.exTitle}`,
+  title: `Home ${METADATA.exTitle}`,
   description: METADATA.description,
   keywords: METADATA.keyword,
   creator: METADATA.creator,
@@ -46,8 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         suppressHydrationWarning
         className={cn(
           inter.variable,
-          'text-stone-500 bg-white font-inter',
-          'dark:bg-black dark:text-stone-100',
+          'text-neutral-500 bg-white font-inter',
+          'dark:bg-black dark:text-neutral-100',
         )}
       >
         <TopLoader />
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
 
           <div className="w-full h-[52dvh] absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-lg animate-pulse bg-repeat-x ">
-            <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat bg-contain bg-left" />
+            <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat bg-contain bg-left dark:opacity-35 opacity-45" />
           </div>
 
           <Main>
