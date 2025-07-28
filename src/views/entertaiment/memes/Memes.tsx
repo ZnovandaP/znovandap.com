@@ -16,7 +16,8 @@ export default function Memes({ dataChunks }: MemesProps) {
   const [currentData, setCurrentData] = React.useState<[] | typeof dataChunks[0]>([]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  const { entry, ref } = useIntersectionObserver({});
+  const ref = React.useRef<null | HTMLDivElement>(null);
+  const entry = useIntersectionObserver(ref, {});
   const isVisible = !!entry?.isIntersecting;
 
   React.useEffect(() => {
