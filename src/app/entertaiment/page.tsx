@@ -12,9 +12,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EntertaimentPage(
-  { searchParams }: { searchParams: { [key: string]: string | string[] | undefined } },
+export default async function EntertaimentPage(
+  props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }
 ) {
+  const searchParams = await props.searchParams;
   return (
     <EntertaimentView searchParams={searchParams.page as string} />
   );

@@ -3,7 +3,7 @@ import * as React from 'react';
 import Tooltip from '../Tooltip';
 
 type ButtonChangeLayoutProps = {
-  icon: React.ReactElement
+  icon: React.ReactElement<any>
   onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void
   isActive:boolean
   title: string

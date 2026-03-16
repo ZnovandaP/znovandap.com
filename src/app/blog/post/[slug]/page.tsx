@@ -6,7 +6,7 @@ import { MdxFileProps, MetadataBlog } from '@/types/mdx';
 import METADATA from '@/constant/metadata';
 
 type BlogPostPageProps = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 };
 
 export async function generateStaticParams() {
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata(props: BlogPostPageProps): Promise<Metadata> {
+  const params = await props.params;
   const blog = await loadMdXFile()
     .find((post) => post.slug === params.slug) as MdxFileProps;
 
@@ -43,7 +44,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage(props: BlogPostPageProps) {
+  const params = await props.params;
   return (
     <BlogPostViews slug={params.slug} />
   );

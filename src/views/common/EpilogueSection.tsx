@@ -4,7 +4,7 @@ import * as React from 'react';
 type EpilogueSectionProps = {
   href: string
   textButton: string
-  icon: React.ReactElement
+  icon: React.ReactElement<any>
   paragraph: string
 };
 export default function EpilogueSection({
