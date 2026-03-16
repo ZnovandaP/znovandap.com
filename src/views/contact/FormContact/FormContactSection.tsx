@@ -36,7 +36,7 @@ export default function FormContactSection() {
       reset();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
+  }, [state.submitting]);
 
   return (
     <section className="px-8 pb-0 sm:py-0">

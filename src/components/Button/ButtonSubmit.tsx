@@ -3,7 +3,7 @@ import * as React from 'react';
 type ButtonSubmitProps = {
   text: string
   disabled?: boolean
-  icon?: React.ReactElement
+  icon?: React.ReactElement<any>
 };
 
 export default function ButtonSubmit({ text, disabled = false, icon }: ButtonSubmitProps) {

@@ -4,13 +4,13 @@ import * as React from 'react';
 type ButtonLinkProps = {
   href: string
   target?: string
-  icon?: React.ReactElement
+  icon?: React.ReactElement<any>
   text: string
   download?: boolean
 };
 
 type ButtonProps = {
-  icon?: React.ReactElement
+  icon?: React.ReactElement<any>
   text: string
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void
 };

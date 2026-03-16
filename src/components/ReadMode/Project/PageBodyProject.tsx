@@ -24,8 +24,8 @@ export default function PageBodyProject({ data, mdxContent }: PageBodyProjectPro
           Tech Stack:
         </h2>
         <MarqueeElement>
-          {[...data.stacks, ...data.stacks].map((stack) => (
-            <StackBadge icon={stack} text={stack} key={stack} />
+          {[...data.stacks, ...data.stacks].map((stack, index) => (
+            <StackBadge icon={stack} text={stack} key={`${stack}-marquee-${index}`} />
           ))}
         </MarqueeElement>
       </div>

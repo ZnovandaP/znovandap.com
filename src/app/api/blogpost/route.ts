@@ -5,7 +5,7 @@ import { latestBlogPosts, oldestBlogPosts } from '@/libs/utils/sortPostBlogyDate
 import loadMdXFile from '@/libs/markdown';
 
 export async function GET(request: NextRequest) {
-  const headerInstance = headers();
+  const headerInstance = await headers();
   const { searchParams } = new URL(request.url);
 
   const apiKey = headerInstance.get('Api-Key') as string;

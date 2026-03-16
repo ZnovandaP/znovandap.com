@@ -6,7 +6,7 @@ type ToastProps = {
   type?: 'success' | 'failed'
   isShow: boolean
   text: string
-  icon?: React.ReactElement
+  icon?: React.ReactElement<any>
 };
 
 const animate = {

@@ -5,7 +5,6 @@ import { CgSpinner } from 'react-icons/cg';
 import CardMeme from '@/components/Card/CardMeme';
 import { DataMeme } from '@/types/response-meme-jokes';
 import { useIntersectionObserver } from 'usehooks-ts';
-import { v4 } from 'uuid';
 import cn from '@/libs/utils/cn';
 
 type MemesProps = {
@@ -16,8 +15,10 @@ export default function Memes({ dataChunks }: MemesProps) {
   const [currentData, setCurrentData] = React.useState<[] | typeof dataChunks[0]>([]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  const ref = React.useRef<null | HTMLDivElement>(null);
-  const entry = useIntersectionObserver(ref, {});
+  const { isIntersecting, ref, entry } = useIntersectionObserver({
+    threshold: 0.5,
+  })
+
   const isVisible = !!entry?.isIntersecting;
 
   React.useEffect(() => {
@@ -40,13 +41,13 @@ export default function Memes({ dataChunks }: MemesProps) {
     <>
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 mt-8" data-aos="fade-up">
         {
-        currentData.map((data) => (
+        currentData.map((data, index) => (
           <CardMeme
             src={data.url}
             alt={`image not found, meme from ${data.source}`}
             href={data.url}
             className="mt-8"
-            key={v4()}
+            key={`${data.url}-${index}`}
           />
         ))
       }

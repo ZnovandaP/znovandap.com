@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from '@/libs/utils/cn';
 
 type TitleHeadProps = {
-  icon?: React.ReactElement
+  icon?: React.ReactElement<any>
   text: string
 };
 export default function TitleHead({ icon, text }: TitleHeadProps) {

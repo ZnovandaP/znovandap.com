@@ -62,7 +62,7 @@ function ProfileContact() {
 
 type ProfileLinkContactProps = {
   href: string
-  icon: React.ReactElement
+  icon: React.ReactElement<any>
   text: string
 };
 

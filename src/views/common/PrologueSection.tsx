@@ -4,7 +4,7 @@ import cn from '@/libs/utils/cn';
 
 type PrologueSectionProps = {
   title: string
-  icon?: React.ReactElement
+  icon?: React.ReactElement<any>
   paragraph: string
   type?: 'head-section' | 'head-page'
 };

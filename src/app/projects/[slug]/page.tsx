@@ -6,7 +6,7 @@ import { MdxFileProps, MetadataProject } from '@/types/mdx';
 import DetailProjectViews from '@/views/projects/slug';
 
 type DetailProjectsPageProps = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 };
 
 export async function generateStaticParams() {
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: DetailProjectsPageProps): Promise<Metadata> {
+export async function generateMetadata(props: DetailProjectsPageProps): Promise<Metadata> {
+  const params = await props.params;
   const project = await loadMdXFile('projects')
     .find((post) => post.slug === params.slug) as MdxFileProps;
 
@@ -43,7 +44,8 @@ export async function generateMetadata({ params }: DetailProjectsPageProps): Pro
   };
 }
 
-export default function DetailProjectsPage({ params }: DetailProjectsPageProps) {
+export default async function DetailProjectsPage(props: DetailProjectsPageProps) {
+  const params = await props.params;
   return (
     <DetailProjectViews slug={params.slug} />
   );
