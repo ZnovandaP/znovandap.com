@@ -26,7 +26,7 @@ export default function Tooltip({ title, children }: TooltipProps) {
 
   const handleHiddenTooltip = () => setIsVisibleTooltip(false);
   return (
-    <div className="relative">
+    <div className="relative inline-flex flex-col items-center">
       <div
         className="text-2xl"
         onMouseEnter={handleVisibleTooltip}
@@ -38,7 +38,7 @@ export default function Tooltip({ title, children }: TooltipProps) {
       <AnimatePresence>
         {isVisibleTooltip && (
         <motion.div
-          className="absolute -top-10"
+          className="absolute -top-9 z-[9999]"
           variants={animate}
           initial="hidden"
           animate="visible"
@@ -50,7 +50,7 @@ export default function Tooltip({ title, children }: TooltipProps) {
             damping: 100,
           }}
         >
-          <h4 className="bg-stone-100 dark:bg-stone-700 px-3 py-1 rounded-md text-sm font-medium">
+          <h4 className="bg-stone-100 dark:bg-stone-700 px-3 py-1 rounded-md text-sm font-medium whitespace-nowrap">
             {title}
           </h4>
         </motion.div>
