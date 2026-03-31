@@ -5,6 +5,7 @@ import Link from 'next/link';
 import moment from 'moment';
 import Card from './Card';
 import BadgeTags from '../Badge/BadgeTags';
+import Icons from '@/constant/icons';
 
 type CardBlogProps = {
   data: MetadataBlog
@@ -48,7 +49,7 @@ export default function CardBlog({ data, slug }: CardBlogProps) {
 
           <div className="flex items-center gap-2 mt-auto">
             {data.tags?.map((stack) => (
-              <BadgeTags stack={stack} key={stack} />
+              <BadgeTags icon={Icons[stack]?.icon} label={Icons[stack]?.name} key={stack} />
             ))}
           </div>
         </Card.CardContent>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import moment from 'moment';
-import Icons from '@/constant/icons';
+import icons from '@/constant/icons';
 import { MetadataProject } from '@/types/mdx';
 import Tooltip from '../Tooltip';
 import Card from './Card';
@@ -40,9 +40,9 @@ export default function CardProject({ data, slug }: CardProjectProps) {
 
           <div className="mt-auto flex items-center gap-4">
             {data.stacks?.slice(0, 5)?.map((stack) => (
-              <Tooltip title={stack} key={stack}>
+              <Tooltip title={icons[stack]?.name} key={stack}>
                 <span className="text-[21px]">
-                  {Icons[stack]}
+                  {icons[stack]?.icon}
                 </span>
               </Tooltip>
             ))}

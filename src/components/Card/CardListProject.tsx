@@ -44,9 +44,9 @@ export default function CardListProject({ data, slug }: CardListProjectProps) {
 
             <div className="mt-4 flex items-center gap-4">
               {data.stacks?.slice(0, 5)?.map((stack) => (
-                <Tooltip title={stack} key={stack}>
+                <Tooltip title={Icons[stack]?.name} key={stack}>
                   <span className="text-[21px]">
-                    {Icons[stack]}
+                    {Icons[stack]?.icon}
                   </span>
                 </Tooltip>
               ))}
@@ -65,7 +65,7 @@ function LinkForSourceProject({ data: { data } }: { data: Pick<CardListProjectPr
     <div className="absolute bottom-4 right-10 flex items-center gap-4">
       <Tooltip title="Repository">
         <Link href={data.repository} target="_blank" className="text-[27px]">
-          {Icons.Github}
+          {Icons.github.icon}
         </Link>
       </Tooltip>
       <Tooltip title="Live">

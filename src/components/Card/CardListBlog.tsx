@@ -5,6 +5,7 @@ import { IoMdTime } from 'react-icons/io';
 import { MetadataBlog } from '@/types/mdx';
 import BadgeTags from '../Badge/BadgeTags';
 import Card from './Card';
+import Icons from '@/constant/icons';
 
 type CardListBlogProps = {
   data: MetadataBlog
@@ -46,7 +47,7 @@ export default function CardListBlog({ data, slug }: CardListBlogProps) {
 
           <div className="mt-4 flex items-center gap-3 flex-wrap">
             {data.tags?.map((stack) => (
-              <BadgeTags stack={stack} key={stack} />
+              <BadgeTags icon={Icons[stack].icon} label={Icons[stack].name} key={stack} />
             ))}
           </div>
         </Card.CardContent>
