@@ -16,7 +16,9 @@ export default function Container({ children, className, ...other }: ContainerPr
 
         'md:max-w-[800px]',
 
-        'lg:max-w-[975px]',
+        'lg:max-w-[900px]',
+
+        'xl:max-w-[1024px]',
 
         className,
       )}
