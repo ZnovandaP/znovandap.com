@@ -19,7 +19,7 @@ export default function BlogPostViews({ slug }: BlogPostViewsProps) {
 
   return (
     <Container
-      className="sm:mt-[8.5rem]"
+      className="sm:mt-[3rem]"
       data-aos="fade-up"
       data-aos-duration="1000"
     >

@@ -4,12 +4,12 @@ import { latestProjectPosts, oldestProjectPosts } from '@/libs/utils/sortingPost
 import PrologueProjects from './layout/Prologue';
 import ProjectContents from './layout/ProjectContents';
 
-const ProjectPostsortByDate = {
-  oldest: oldestProjectPosts(),
-  latest: latestProjectPosts(),
-};
 
 export default function ProjectsView() {
+  const ProjectPostsortByDate = {
+    oldest: oldestProjectPosts(),
+    latest: latestProjectPosts(),
+  };
   return (
     <Container className="sm:mt-[6rem]" data-aos="fade-up" data-aos-duration="700">
       <PrologueProjects />

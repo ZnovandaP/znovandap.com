@@ -4,6 +4,7 @@ import { LuCode2 } from 'react-icons/lu';
 import MarqueeElement from '@/components/MarqueeElement';
 import myTechStack from '@/constant/data-tech-stack';
 import StackBadge from '@/components/Badge/StackBadge';
+import icons from '@/constant/icons';
 
 export default function TechStacksSection() {
   const techStacks = myTechStack.sort(() => Math.random() - 0.5);
@@ -24,7 +25,7 @@ export default function TechStacksSection() {
             direction={key % 2 === 1 ? 'left' : 'right'}
           >
             {techStacks.map((stack) => (
-              <StackBadge icon={stack} text={stack} key={stack} />
+              <StackBadge icon={icons[stack].icon} text={icons[stack].name} key={icons[stack].name} />
             ))}
           </MarqueeElement>
         ))}
