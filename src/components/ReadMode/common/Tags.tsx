@@ -1,5 +1,6 @@
 import * as React from 'react';
 import BadgeTags from '@/components/Badge/BadgeTags';
+import Icons from '@/constant/icons';
 
 type TagsProps = {
   tags: string[]
@@ -12,7 +13,7 @@ export default function Tags({ tags }: TagsProps) {
       </h2>
       <div className="flex items-center gap-4 flex-wrap">
         {tags.map((tag) => (
-          <BadgeTags size="md" stack={tag} key={tag} />
+          <BadgeTags size="md" icon={Icons[tag]?.icon} label={Icons[tag]?.name} key={tag} />
         ))}
       </div>
     </div>
