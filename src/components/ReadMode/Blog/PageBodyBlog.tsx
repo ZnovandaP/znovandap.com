@@ -13,13 +13,13 @@ type PageBodyProps = {
 export default function PageBodyBlog({ data, mdxContent }: PageBodyProps) {
   return (
     <section className="px-8 pb-0 sm:py-0">
-      <ImageHead alt={data.title} src={data.image} />
+      <ImageHead alt={data?.title} src={data?.image} />
 
       <ArticleContent mdxContent={mdxContent} />
 
       <Line className="my-8" size="sm" />
 
-      <Tags tags={data.tags} />
+      <Tags tags={data?.tags} />
     </section>
   );
 }
