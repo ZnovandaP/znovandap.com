@@ -52,18 +52,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <TopLoader />
         <NextThemeProvider>
-          <header>
-            <NavbarDesktop />
-            <NavbarMobile />
-          </header>
+          <div className="relative flex flex-col w-full">
+            <header>
+              <NavbarDesktop />
+              <NavbarMobile />
+            </header>
 
-          <div className="w-full h-[52dvh] absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-lg animate-pulse bg-repeat-x ">
-            <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat-x bg:cover md:bg-contain bg-left dark:opacity-35 opacity-45" />
+            <div className="absolute inset-0 -z-50 pointer-events-none w-full">
+              <div className="sticky top-0 w-full h-[52dvh] animate-pulse bg-repeat-x">
+                <div className="bg-[url(/decoration/hexagonal-pattern.png)] w-full h-full bg-repeat-x bg:cover md:bg-contain bg-left dark:opacity-25 opacity-35" />
+              </div>
+            </div>
+
+            <Main>
+              {children}
+            </Main>
           </div>
-
-          <Main>
-            {children}
-          </Main>
 
           <Footer />
         </NextThemeProvider>
