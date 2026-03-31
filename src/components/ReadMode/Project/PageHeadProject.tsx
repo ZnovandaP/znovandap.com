@@ -30,7 +30,8 @@ export default function PageHeadProject({ data }: PageHeadProjectProps) {
   );
 }
 
-function AdditionalInformation({ data }: { data: MetadataProject }) {
+function 
+AdditionalInformation({ data }: { data: MetadataProject }) {
   const formatDatePublishedBlog = moment(data.date).format('LL');
   const postTimeAgo = moment(data.date).fromNow();
 
@@ -43,21 +44,21 @@ function AdditionalInformation({ data }: { data: MetadataProject }) {
       <div className="flex flex-col gap-y-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center flex-wrap order-last sm:order-1 gap-4 ">
           {data.stacks?.map((stack) => (
-            <Tooltip title={stack} key={stack}>
+            <Tooltip title={Icons[stack].name} key={stack}>
               <span className="md:text-3xl">
-                {Icons[stack]}
+                {Icons[stack].icon}
               </span>
             </Tooltip>
           ))}
         </div>
 
         <div className="flex items-center gap-4 font-medium order-1 sm:order-last">
-          <BadgeTags size="md" stack={data.projectType} />
+          <BadgeTags label={data.projectType} size="md" />
           |
           <div className="flex items-center gap-4">
             <Tooltip title="Repository">
               <Link href={data.repository} target="_blank" className="text-[26px] md:text-4xl">
-                {Icons.Github}
+                {Icons['github'].icon}
               </Link>
             </Tooltip>
             <Tooltip title="Live">

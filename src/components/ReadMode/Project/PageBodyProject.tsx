@@ -5,6 +5,7 @@ import MarqueeElement from '@/components/MarqueeElement';
 import StackBadge from '@/components/Badge/StackBadge';
 import ArticleContent from '../common/ArticleContent';
 import ImageHeadSvg from '../common/ImageSvg';
+import Icons from '@/constant/icons';
 
 type PageBodyProjectProps = {
   data: MetadataProject
@@ -25,7 +26,7 @@ export default function PageBodyProject({ data, mdxContent }: PageBodyProjectPro
         </h2>
         <MarqueeElement>
           {[...data.stacks, ...data.stacks].map((stack, index) => (
-            <StackBadge icon={stack} text={stack} key={`${stack}-marquee-${index}`} />
+            <StackBadge icon={Icons[stack].icon} text={Icons[stack].name} key={`${stack}-marquee-${index}`} />
           ))}
         </MarqueeElement>
       </div>
