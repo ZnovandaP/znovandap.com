@@ -6,6 +6,14 @@
   .ping::after{
     @apply absolute -top-[3px] -left-[3px] content-[''] bg-green-600/50 w-[14px] h-[14px] animate-ping rounded-full
   }
+
+  .ping:is(.ping-danger)::after{
+    @apply bg-rose-600/50
+  }
+
+  .ping:is(.ping-warning)::after{
+    @apply bg-amber-600/50
+  }
 }
 
 @layer utilities {
