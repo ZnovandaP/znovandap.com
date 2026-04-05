@@ -8,7 +8,7 @@ type ImageHeadSvgProps = {
 
 export default function ImageHeadSvg({ src, alt }: ImageHeadSvgProps) {
   return (
-    <div className="center rounded-lg overflow-hidden w-full h-[10rem] sm:h-[15rem] md:h-[22rem] lg:h-[25rem]">
+    <div className="center rounded-lg overflow-hidden w-full h-[13rem] sm:h-[17rem] md:h-[22rem] lg:h-[25rem]">
       <Image
         src={src}
         alt={alt}

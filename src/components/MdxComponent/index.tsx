@@ -40,7 +40,7 @@ export default function MdxComponent({ children }: MdxComponentProps) {
             {...props}
           />
         ),
-        p: (props) => <div {...props} className="font-medium mt-6 hyphens-auto" />,
+        p: (props) => <p {...props} className="font-medium mt-6 hyphens-auto whitespace-pre-line" />,
         h2: (props) => <h2 className="border-l-[6px] border-sky-500 pl-2 text-2xl mt-6 font-semibold" {...props} />,
         h3: (props) => <h3 className="border-l-4 border-emerald-300/80 pl-2 text-xl mt-6 font-semibold" {...props} />,
         h4: (props) => <h4 className="text-lg mt-6 font-semibold" {...props} />,
