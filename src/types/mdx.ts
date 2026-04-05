@@ -19,6 +19,9 @@ export type MetadataProject = {
   projectType: string
   repository: string
   livePreview: string
+  visibility: 'Public' | 'Private',
+  workingType: ('Fulltime' | 'Internship' | 'Part-time' | 'Independent')[]
+  status: 'Live' | 'Not Live' | 'Coming Soon'
 };
 
 export type MdxFileProps = {
