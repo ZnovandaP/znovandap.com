@@ -5,6 +5,8 @@ import icons from '@/constant/icons';
 import { MetadataProject } from '@/types/mdx';
 import Tooltip from '../Tooltip';
 import Card from './Card';
+import BadgeTags from '../Badge/BadgeTags';
+import Ping from '../Ping';
 
 type CardProjectProps = {
   data: MetadataProject
@@ -22,7 +24,7 @@ export default function CardProject({ data, slug }: CardProjectProps) {
           src={data.thumbnail}
           alt={`Image, Project ${data.title}`}
         />
-        <Card.CardContent className="border-t-2 border-stone-400 dark:border-stone-600 h-[200px] flex flex-col">
+        <Card.CardContent className="border-t-2 border-stone-400 dark:border-stone-600 h-[230px] flex flex-col">
           <div className="flex flex-col gap-2">
             <h2
               style={{ color: data.theme }}
@@ -47,6 +49,16 @@ export default function CardProject({ data, slug }: CardProjectProps) {
               </Tooltip>
             ))}
           </div>
+          {
+            data.status && 
+            <BadgeTags 
+            icon={<Ping type={data.status === 'Live' ? 'success' : data.status === 'Coming Soon' ? 'warning' : 'danger'} />}
+            label={data.status} 
+            size="sm" 
+            type='default'
+            className='text-nowrap mt-4'
+            />
+          }
         </Card.CardContent>
       </Card>
     </Link>
