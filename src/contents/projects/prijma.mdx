@@ -1,0 +1,91 @@
+---
+title: "PRIJMA: Billing Management Apps"
+subtitle: "PRIJMA is a billing management application (web based) that helps businesses manage billing processes, agreements, transactions, proforma invoices, and invoices for our clients."
+date: "2025-07-27"
+image: "/assets_porto/prijma/thumb_prijma.png"
+thumbnail: '/assets_porto/prijma/thumb_prijma.png'
+theme: '#4880FF'
+stacks: ['laravel', 'vue', 'postgresql', 'php', 'typescript', 'nodejs', 'axios', 'tailwindcss', 'vite', 'docker',]
+projectType: 'Website'
+repository: '/'
+livePreview: '/'
+visibility: 'Private'
+workingType: ['Internship','Fulltime']
+status: 'Not Live'
+---
+
+## Backstory Why Did We Create This Project? (The Problem)
+
+When i was working at [PT. Inovasi Niaga Integrasi (WZ Technology)](https://wz-technology.id/) in 2024 - 2025, my team was assigned a new project and tackling new challenge to re-write an existing billing management application. The name of this project is ***PRIJMA***, ***PRIJMA*** is web based application that helps the finance team to manage billing processes, agreements, transactions, proforma invoices, and invoices for our clients.
+
+Before ***PRIJMA*** was built, the billing management process at [PT. Inovasi Niaga Integrasi (WZ Technology)](https://wz-technology.id/) was done manually using Microsoft Excel. This caused several problems, including the following:
+  - The finance team calculate manually using Microsoft Excel for billing process
+  - The finance team create and sending proforma invoice and invoice manually using Microsoft Excel
+  - The finance team confusion to trace transaction and payment status using Microsoft Excel with millions of data
+  - The finance team manually handling agreement process and validity period agreement with client
+  - The finance team manually create report for billing process
+  - The finance team manually send notification to client for payment reminder
+
+## My Contribution and Responsibilities
+
+In this project i was assigned as a `fullstack engineer` and i was responsible for re-write and create new several modules on the existing application using modern technology stack, including the following:
+  - Participating DS *(Daily Standup)* for discuss about progress and blocking while development process
+  - Create and develop module *Activity Charge*
+  - Create and develop module *Rate Clients* (including approval process feature)
+  - Create and develop module *Entity Management*
+  - Create and develop several features on module *User Role Management*
+  - Create and develop module *Proforma Invoice* (including approval process and generate to invoice features)
+  - Create and develop module *Invoice* (including approval process, export to pdf features)
+  - Jump in to bug fixing on module *Agreement*, *Transactions*, *Clients*, and *Additional Activity* (module that already built by other team member)
+  - Enhancmenet Module *Additional Activity* (import and export excel with multiple sheet and could handle import data with `10k+ row of data` and also handle export data with `10k+ row of data`. Because each sheet represent different activity charge specification)
+
+## Goals This Project 
+
+Main goals re-write billing management application ***PRIJMA*** from scratch using modern technology stack, including the following: 
+  - The existing application was built using only `Laravel 9.x`, `Bootstrap 5.x`, `JQuery` and `Popper.js` and implemented multipage application
+  - The users wants a more modern UI, smooth animations, and minimal loading times when switching pages, and the existing application was built have UI and UX is stiff and not smooth
+  - The existing application was built mostly cannot handle new features request from client and finance team (the users)
+  - The existing application was built only handle simple billing process, but the finance and clients team needs more features such as adaptive form for dynamic field,
+  - The existing application was built cannot have feature for handling agreement process and validity period agreement with client automatically (not yet implemented)
+  - The existing application was built cannot have feature for handling payment reminder to client automatically (not yet implemented)
+  - The existing application was built cannot have feature for handling report for billing process automatically (not yet implemented)
+  - The existing application was built cannot have feature for handling transaction and payment status using Microsoft Excel with millions of data (not yet implemented)
+  - The existing application was built cannot have feature import data from excel to a system (***PRIJMA***) (not yet implemented)
+  - The existing application was built cannot have feature export data from system (***PRIJMA***) to excel and pdf (not yet implemented)
+  - The existing application was built cannot have module for handling proforma invoice and invoice (not yet implemented)
+
+## Features on ***PRIJMA*** Project After Re-write (The Solution)
+
+The ***PRIJMA*** Project has several features to handling the problems at section above, including the following:
+  - *Primary Dashboard* page
+  - *Settings* module, including following:
+    - Manage *Entity*
+    - Manage *Users*
+    - Manage *Roles*
+    - Manage *Permissions* base on *Entity* and *Roles*
+  - Real time notification for approval process and import-export data process, the notification including email and notification on apps
+  - UI/UX with modern tech stack, smooth transition, reactive, and minimal loading times when switching pages, because use SPA (Single Page Application) architecture with `Vue 3 + Typescript` 
+  - *Activity Charge* Management
+  - *Rate Clients* Management including approval process feature and validity period rate clients base on agreements
+  - *Agreement* Management including approval process and validity period agreement with client automatically via notifications
+  - *Clients* Management including approval process
+  - *Transactions Module*, including following:
+    - Transaction are divided into 5 Categories, including:
+      - *Additional Activity*
+      - *Inbound*
+      - *Outbound*
+      - *Return*
+      - *Inventory*
+    - *Transaction Module* all data (except *Additional Activity*) are generate by period (monthly) and generate automatically by data engineer (the data pulled from Warehouse Management System) external system 
+    - Each category has its own transaction data and can be filtered by date range, client, and status
+    - Each category has its own appoval process
+    - Specifically for *Additional Activity* including import and export excel with multiple sheet and could handle import data with `10k+ row of data` and also handle export data with `10k+ row of data`. Because each sheet represent different activity charge specification
+  - *Proforma Invoice* Management, including following:
+    - Handling approval process
+    - generate *Invoice* base on *Proforma Invoice* data with apporval status is **Approved**
+    - Reconciliation process, when transaction data needs to be revised
+    - After reconciliation process, the *Proforma Invoice* data could be updated when feature Regenerate *Proforma Invoice* is triggered
+  - *Invoice* Management, including following:
+    - Handling approval process
+    - export to pdf feature
+    - payment reminder if the client has not yet paid their bill (automatically via email and notification on apps)
