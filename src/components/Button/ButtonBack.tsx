@@ -5,7 +5,7 @@ import { IoMdArrowBack } from 'react-icons/io';
 import Link from 'next/link';
 
 type ButtonBackProps = {
-  className: string
+  className?: string
   to: string
   text?: string
 };

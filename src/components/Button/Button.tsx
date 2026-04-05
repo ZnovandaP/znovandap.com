@@ -7,6 +7,7 @@ type ButtonLinkProps = {
   icon?: React.ReactElement<any>
   text: string
   download?: boolean
+  className?: string
 };
 
 type ButtonProps = {
@@ -34,11 +35,11 @@ export function Button({ text, icon, onClick }: ButtonProps) {
 }
 
 export function ButtonLink({
-  text, icon, href, target, download,
+  text, icon, href, target, download, className
 }: ButtonLinkProps) {
   return (
     <Link
-      className="group center bg-stone-100 dark:bg-stone-900 px-12 py-2 rounded-tl-full rounded-br-full font-medium ring-2 ring-stone-500/70 hover:scale-105 active:scale-95 transition-all duration-300"
+      className={`group center bg-stone-100 dark:bg-stone-900 px-12 py-2 rounded-tl-full rounded-br-full font-medium ring-2 ring-stone-500/70 hover:scale-105 active:scale-95 transition-all duration-300 ${className}`}
       href={href}
       target={target}
       download={download}
