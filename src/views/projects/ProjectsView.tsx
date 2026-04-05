@@ -11,7 +11,7 @@ export default function ProjectsView() {
     latest: latestProjectPosts(),
   };
   return (
-    <Container className="sm:mt-[6rem]" data-aos="fade-up" data-aos-duration="700">
+    <Container className="sm:mt-[3rem]" data-aos="fade-up" data-aos-duration="700">
       <PrologueProjects />
       <ProjectContents dataProjectPost={ProjectPostsortByDate} />
     </Container>
