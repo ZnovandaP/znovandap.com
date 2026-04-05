@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LuUser2 } from 'react-icons/lu';
+import { LuDownload, LuUser2 } from 'react-icons/lu';
 import { HiOutlineNewspaper } from 'react-icons/hi2';
 import { ButtonLink } from '@/components/Button/Button';
 import PrologueSection from '@/views/common/PrologueSection';
@@ -12,15 +12,16 @@ export default function PrologueAbout() {
         <PrologueSection
           title="About Me"
           icon={<LuUser2 />}
-          paragraph="I will share short story about me, about my journey why i learn programming specially front-end web development"
+          paragraph="A short story of me, short journey why i choose software engineering as my career path"
         />
 
         <div className="flex mt-4 sm:mt-0 sm:absolute sm:-bottom-[3.5rem] sm:right-1/2 sm:translate-x-1/2">
           <ButtonLink
-            text="My Resume"
+            text="Download Full Resume"
             href="https://drive.google.com/drive/folders/1ri8xKTMyMJo4YDz7V7YvAQ9Ow9IDX3Qu?usp=drive_link"
             target="_blank"
-            icon={<HiOutlineNewspaper />}
+            icon={<LuDownload className='animate-bounce' />}
+            className='text-sm'
           />
         </div>
       </div>

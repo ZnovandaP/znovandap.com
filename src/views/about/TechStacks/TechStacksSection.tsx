@@ -11,7 +11,7 @@ export default function TechStacksSection() {
 
   return (
     <section className="px-8 pb-0 sm:py-0">
-      <Line size="sm" className="my-8" borderStyle="border-dashed" />
+      <Line size="sm" className="my-2" borderStyle="border-dashed" />
 
       <h3 className="flex items-center gap-2 text-xl font-semibold">
         <LuCode2 className="text-2xl" />
